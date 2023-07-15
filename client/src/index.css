@@ -1,0 +1,43 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgb(21, 20, 20);
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Containers */
+.container {
+  margin: 0 30px;
+}
