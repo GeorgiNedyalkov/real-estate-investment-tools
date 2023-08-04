@@ -20,7 +20,7 @@ export default function RentalIncome({
                 />
             </div>
             <div>
-                <h4 className="mb-2 text-xl font-bold">Purchase Price</h4>
+                <h4 className="mb-2 text-xl font-bold">Rental Income</h4>
                 <p className="text-xl font-semibold">
                     {rentalIncome?.toLocaleString() + " $"}
                 </p>

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import LoanForm from "./components/LoanForm";
 import PurchaseInformation from "./components/PurchaseInformation";
 import RentalIncome from "./components/RentalIncome";
+import Expenses from "./components/Expenses";
 
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -29,6 +30,7 @@ function App() {
                 rentalIncome={rentalIncome}
                 onRentalIncomeChange={onRentalIncomeChange}
             />
+            <Expenses />
         </div>
     );
 }
