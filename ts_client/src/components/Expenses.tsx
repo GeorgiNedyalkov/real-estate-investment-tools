@@ -1,6 +1,19 @@
 import { useState } from "react";
 
-const EXPENSES_INITIAL_STATE = {
+interface Expenses {
+    propertyTaxes: number;
+    insurance: number;
+    vacancy: number;
+    capitalExpenditures: number;
+    managementFees: number;
+    electricity: number;
+    water: number;
+    HOAfees: number;
+    garbage: number;
+    other: number;
+}
+
+const EXPENSES_INITIAL_STATE: Expenses = {
     propertyTaxes: 0,
     insurance: 0,
     vacancy: 0,
