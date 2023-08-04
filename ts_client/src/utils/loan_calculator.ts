@@ -1,4 +1,4 @@
-function calculateLoan(
+export function calculateLoan(
     purchasePrice: number,
     downpayment: number,
     annualInterestRate: number,
@@ -15,12 +15,8 @@ function calculateLoan(
         ((monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
             (Math.pow(1 + monthlyInterestRate, loanTerm) - 1));
 
-    return monthlyPayment;
+    return monthlyPayment.toFixed(0);
 }
-
-console.log(calculateLoan(100_000, 20, 5, 20)); // 527
-console.log(calculateLoan(100_000, 20, 5, 30)); // 429
-console.log(calculateLoan(100_000, 30, 5, 20)); // 461
-console.log(calculateLoan(100_000, 10, 5, 20)); // 593
+// 593
 
 // todo: add property taxes, homeowners insurance, HOA Fees and PMI
