@@ -8,7 +8,7 @@ export default function RentalIncome({
     onRentalIncomeChange,
 }: RentalIncomeProps) {
     return (
-        <div className="mb-10 flex justify-between w-6/12">
+        <div className="mb-10 my-20 flex justify-between w-6/12">
             <div>
                 <h2 className="text-2xl font-bold mb-5">Rental Income</h2>
                 <label>Rental Income</label>
