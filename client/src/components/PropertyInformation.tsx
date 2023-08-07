@@ -1,6 +1,7 @@
 import { useState } from "react";
+import PropertyCard from "./PropertyCard";
 
-interface Property {
+export interface Property {
     streetAddress: string;
     city: string;
     state: string;
@@ -149,18 +150,11 @@ export default function PropertyInformation() {
                 )}
             </section>
             <section>
+                <PropertyCard propertyInformation={propertyInformation} />
                 <div>
-                    <p>Street Address: {propertyInformation?.streetAddress}</p>
-                    <p>City: {propertyInformation?.city}</p>
-                    <p>State: {propertyInformation?.state}</p>
-                    <p>Zip Code: {propertyInformation?.zipCode}</p>
-
                     {/* optional */}
                     {isDetailed && (
                         <div>
-                            <p>Options:</p>
-                            <p>Bedrooms: {propertyInformation?.bedrooms}</p>
-                            <p>Bathrooms: {propertyInformation?.bathrooms}</p>
                             <p>Size: {propertyInformation?.size}</p>
                             <p>Year Built: {propertyInformation?.yearBuilt}</p>
                             <p>
