@@ -34,28 +34,28 @@ Staff will be included only if it increase the profit potential.
 
 Here are all the aspects that need a team or specified contractors:
 
-- Property acquisition
-- Property renovation
-- Property disposition
+-   Property acquisition
+-   Property renovation
+-   Property disposition
 
 Additionally:
 
-- Investment Advisors
-- Industry Professionals
-- Licensed Contractors
+-   Investment Advisors
+-   Industry Professionals
+-   Licensed Contractors
 
 Includes finding roles for these professions:
 
-- CPA
-- Real Estate Attorney: Stefan Stefanov
-- Title Attorney:
+-   CPA
+-   Real Estate Attorney: Stefan Stefanov
+-   Title Attorney:
 
 Team of:
 
-- Real Estate Agents
-- Inspectors
-- Appraisers
-- Insurance Agents
+-   Real Estate Agents
+-   Inspectors
+-   Appraisers
+-   Insurance Agents
 
 ## Business Structure
 
@@ -72,9 +72,9 @@ will be one of the key strategies for success.
 
 Channels:
 
-- Youtube
-- Discord
-- Podcast
-- Blog
+-   Youtube
+-   Discord
+-   Podcast
+-   Blog
 
 ## Networking

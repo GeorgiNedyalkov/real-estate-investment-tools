@@ -37,3 +37,7 @@ Optional:
 
 -   Annual Expeses Growth
 -   Sales Expenses
+
+Additional UX:
+
+Checkmarks and Status Bar
