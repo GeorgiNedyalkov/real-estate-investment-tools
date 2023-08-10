@@ -1,23 +1,30 @@
 function calculatePurchaseExpenses(purchasePrice, closingCosts) {
     return purchasePrice + purchasePrice * (closingCosts / 100);
 }
+
 function calculateRentalIncome(monthlyRent, vacancy) {
     return monthlyRent - monthlyRent * (vacancy / 100);
 }
+
 function calculateGrossMonthlyIncome(rent) {
     return rent * 12;
 }
+
 function calculateLoan(purchasePrice, downpayment, annualInterestRate, years) {
     var principal = purchasePrice - (downpayment / 100) * purchasePrice;
     var monthlyInterestRate = annualInterestRate / 12 / 100;
     var loanTerm = years * 12;
-    var monthlyPayment = principal *
+    var monthlyPayment =
+        principal *
         ((monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
             (Math.pow(1 + monthlyInterestRate, loanTerm) - 1));
     return monthlyPayment.toFixed(0);
 }
+
 function calculateExpenses(expenses) {
-    return Object.values(expenses).reduce(function (acc, value) { return Number(acc) + Number(value); }, 0);
+    return Object.values(expenses).reduce(function (acc, value) {
+        return Number(acc) + Number(value);
+    }, 0);
 }
 var totalExpenses = {
     propertyTaxes: 10,

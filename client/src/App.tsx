@@ -32,7 +32,7 @@ function App() {
                 rentalIncome={rentalIncome}
                 onRentalIncomeChange={onRentalIncomeChange}
             />
-            <Expenses />
+            <Expenses rentalIncome={rentalIncome} />
         </div>
     );
 }

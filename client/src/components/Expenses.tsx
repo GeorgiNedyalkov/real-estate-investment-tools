@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { calculateExpenses } from "../utils/expenses.ts";
 
 interface Expenses {
     propertyTaxes: number;
     insurance: number;
+    repairsAndMaintenance: number;
     vacancy: number;
     capitalExpenditures: number;
     managementFees: number;
     electricity: number;
+    gas: number;
     water: number;
     HOAfees: number;
     garbage: number;
@@ -16,17 +19,19 @@ interface Expenses {
 const EXPENSES_INITIAL_STATE: Expenses = {
     propertyTaxes: 0,
     insurance: 0,
+    repairsAndMaintenance: 0,
     vacancy: 0,
     capitalExpenditures: 0,
     managementFees: 0,
     electricity: 0,
+    gas: 0,
     water: 0,
     HOAfees: 0,
     garbage: 0,
     other: 0,
 };
 
-export default function Expenses() {
+export default function Expenses({ rentalIncome }: { rentalIncome: number }) {
     const [expensesValues, setExepnsesValues] = useState(
         EXPENSES_INITIAL_STATE
     );
@@ -42,23 +47,19 @@ export default function Expenses() {
     const onExpensesFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        setTotalExpenses(
-            Object.values(expensesValues).reduce(
-                (acc, value) => Number(acc) + Number(value),
-                0
-            )
-        );
+        setTotalExpenses(calculateExpenses(expensesValues, rentalIncome));
     };
 
     return (
         <div className="mb-10 my-20 flex justify-between w-6/12">
             <section>
                 <h2 className="text-2xl font-bold mb-5">Expenses</h2>
+                <p>Rental Income: {"$" + rentalIncome.toLocaleString()}</p>
                 <form
                     onSubmit={onExpensesFormSubmit}
                     className="flex flex-col gap-2"
                 >
-                    <div>
+                    <div className="w-96 flex items-center justify-between">
                         <label>Property Taxes</label>
                         <input
                             name="propertyTaxes"
@@ -68,7 +69,7 @@ export default function Expenses() {
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Insurance</label>
                         <input
                             name="insurance"
@@ -78,7 +79,23 @@ export default function Expenses() {
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
+                        <label>Repairs and Maintenance</label>
+                        <input
+                            name="repairsAndMaintenance"
+                            type="number"
+                            className="border p-2 ml-2"
+                            value={expensesValues.repairsAndMaintenance}
+                            onChange={onExpensesChange}
+                        />
+                        <p>
+                            {"$" +
+                                (expensesValues.repairsAndMaintenance / 100) *
+                                    rentalIncome}
+                        </p>
+                    </div>
+
+                    <div className="w-97 flex items-center justify-between">
                         <label>Vacancy</label>
                         <input
                             name="vacancy"
@@ -87,8 +104,12 @@ export default function Expenses() {
                             value={expensesValues.vacancy}
                             onChange={onExpensesChange}
                         />
+                        <p>
+                            {"$" +
+                                (expensesValues.vacancy / 100) * rentalIncome}
+                        </p>
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Capital Expenditures</label>
                         <input
                             name="capitalExpenditures"
@@ -97,9 +118,14 @@ export default function Expenses() {
                             value={expensesValues.capitalExpenditures}
                             onChange={onExpensesChange}
                         />
+                        <p>
+                            {"$" +
+                                (expensesValues.capitalExpenditures / 100) *
+                                    rentalIncome}
+                        </p>
                     </div>
 
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Management Fees</label>
                         <input
                             name="managementFees"
@@ -108,8 +134,13 @@ export default function Expenses() {
                             value={expensesValues.managementFees}
                             onChange={onExpensesChange}
                         />
+                        <span>
+                            {"$" +
+                                (expensesValues.managementFees / 100) *
+                                    rentalIncome}
+                        </span>
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Electricity</label>
                         <input
                             name="electricity"
@@ -120,7 +151,7 @@ export default function Expenses() {
                         />
                     </div>
 
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Water</label>
                         <input
                             name="water"
@@ -130,7 +161,7 @@ export default function Expenses() {
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>HOA Fees</label>
                         <input
                             name="HOAfees"
@@ -140,7 +171,7 @@ export default function Expenses() {
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Garbage</label>
                         <input
                             name="garbage"
@@ -150,7 +181,7 @@ export default function Expenses() {
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div>
+                    <div className="w-97 flex items-center justify-between">
                         <label>Other</label>
                         <input
                             name="other"
@@ -171,7 +202,7 @@ export default function Expenses() {
             <div>
                 <h4 className="mb-2 text-xl font-bold">Expenses</h4>
                 <p className="text-xl font-semibold">
-                    {totalExpenses?.toLocaleString() + " $"}
+                    {"$" + totalExpenses?.toLocaleString()}
                 </p>
             </div>
         </div>
