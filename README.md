@@ -27,6 +27,11 @@ What problems do Real Estate Investors have?
 
 ## Inspiration and Contributions
 
+This calculator is based almost entirely on the calculator of Bigger Pockets.
+It is one of the best websites for Real Estate Investors.
+
+[BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
+
 ## Models
 
 ## Getting started
