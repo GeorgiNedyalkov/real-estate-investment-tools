@@ -32,8 +32,6 @@ It is one of the best websites for Real Estate Investors.
 
 [BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
 
-## Models
-
 ## Getting started
 
 ## What do Real Estate Investors do daily?
