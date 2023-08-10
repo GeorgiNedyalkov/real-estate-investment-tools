@@ -4,14 +4,14 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+-   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+-   Configure the top-level `parserOptions` property like this:
 
 ```js
    parserOptions: {
@@ -22,6 +22,29 @@ If you are developing a production application, we recommend updating the config
    },
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+-   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+-   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Research
+
+## Models
+
+1. Net Worth Model
+2. Financial Model
+3. Network Model
+4. Lead Generation Model
+5. Acquisition Model
+
+## What do Real Estate Investors do daily?
+
+-   Search for new rental properties to invest in?
+-   Search for people who can help them find the properties, manage the properties,
+    renovate the properties, finance the properties.
+-   Educate themsemselves on how to become better?
+
+Daily, weekly, mothly, yearly tasks:
+
+-   Keep track of your personal budget
+-   Keep track of your net worth
+-   Analyze deals

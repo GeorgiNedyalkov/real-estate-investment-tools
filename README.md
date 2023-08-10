@@ -1,28 +1,44 @@
-# Real Estate Investing
+# Real Estate Investment Tools
 
-What problems do Real Estate Investors have?
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="./client//public/favicon.ico" alt="Project logo"></a>
+</p>
 
-How can Real Estate Investors make more money by using software?
+<h3 align="center">Real Estate Rental Property Calculator</h3>
 
-## Research
+---
 
-## Models
+<p align="center"> Calculate your profitability, expenses and loan details to make better investment decisions.
+    <br> 
+</p>
 
-1. Net Worth Model
-2. Financial Model
-3. Network Model
-4. Lead Generation Model
-5. Acquisition Model
+## 📝 Table of Contents
 
-## What do Real Estate Investors do daily?
+-   [About](#about)
+-   [Getting Started](#getting_started)
+-   [Deployment](#deployment)
+-   [Usage](#usage)
+-   [Built Using](#built_using)
+-   [TODO](../TODO.md)
+-   [Contributing](../CONTRIBUTING.md)
+-   [Authors](#authors)
+-   [Acknowledgments](#acknowledgement)
 
-- Search for new rental properties to invest in?
-- Search for people who can help them find the properties, manage the properties,
-  renovate the properties, finance the properties.
-- Educate themsemselves on how to become better?
+## Inspiration and Contributions
 
-Daily, weekly, mothly, yearly tasks:
+[Logo from Freepik](https://www.flaticon.com/free-icons/price)
 
-- Keep track of your personal budget
-- Keep track of your net worth
-- Analyze deals
+## Getting started
+
+## Built Using
+
+-   [Typescript]()
+-   [React]()
+-   [Some charting tool]()
+-   [Flaticon]()
+-   [ReactIcons]()
+
+## Authors <a name = "authors" ></a>
+
+-   [Georgi Nedyalkov](https://www.georginedyalkov.com/)
