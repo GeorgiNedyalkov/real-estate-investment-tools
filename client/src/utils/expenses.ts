@@ -34,20 +34,3 @@ export function calculateExpenses(
 
     return sum;
 }
-
-// const totalExpenses = {
-//     propertyTaxes: 10,
-//     insurance: 10,
-//     repairsAndMaintenance: 20,
-//     vacancy: 10,
-//     capitalExpenditures: 10,
-//     managementFees: 10,
-//     electricity: 10,
-//     gas: 10,
-//     water: 10,
-//     HOAfees: 10,
-//     garbage: 10,
-//     other: 10,
-// };
-
-// console.log(calculateExpenses(totalExpenses, 1000));
