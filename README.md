@@ -13,7 +13,7 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
+What problems do Real Estate Investors have?
 
 -   [About](#about)
 -   [Getting Started](#getting_started)
@@ -27,11 +27,11 @@
 
 ## Inspiration and Contributions
 
-[Logo from Freepik](https://www.flaticon.com/free-icons/price)
+## Models
 
 ## Getting started
 
-## Built Using
+## What do Real Estate Investors do daily?
 
 -   [Typescript]()
 -   [React]()
@@ -41,4 +41,6 @@
 
 ## Authors <a name = "authors" ></a>
 
--   [Georgi Nedyalkov](https://www.georginedyalkov.com/)
+-   Keep track of your personal budget
+-   Keep track of your net worth
+-   Analyze deals
