@@ -38,6 +38,7 @@ It is one of the best websites for Real Estate Investors.
 
 -   [Typescript]()
 -   [React]()
+-   [Tailwindcss](https://tailwindcss.com/)
 -   [Some charting tool]()
 -   [Flaticon]()
 -   [ReactIcons]()
