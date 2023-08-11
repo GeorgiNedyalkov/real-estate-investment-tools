@@ -19,6 +19,10 @@ export default function Returns({ rentalIncome }: { rentalIncome: number }) {
                     <p>Pro forma cap</p>
                     <h3 className="font-bold text-lg">3.25%</h3>
                 </div>
+                <div className="w-40">
+                    <p>Purchase cap</p>
+                    <h3 className="font-bold text-lg">3.25%</h3>
+                </div>
             </div>
 
             <h2 className="text-2xl font-bold mb-5">50% Rule</h2>
