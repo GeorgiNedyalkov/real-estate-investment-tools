@@ -11,6 +11,7 @@ import Results from "./components/Results";
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
     const [rentalIncome, setRentalIncome] = useState(0);
+    const [showForm, setShowForm] = useState(false);
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchasePrice(+e.target.value);
@@ -26,17 +27,28 @@ function App() {
 
             <Results rentalIncome={rentalIncome} />
 
-            <PropertyInformation />
-            <PurchaseInformation
-                purchasePrice={purchasePrice}
-                onPurchasePriceChange={onPurchasePriceChange}
-            />
-            <LoanForm purchasePrice={purchasePrice} />
-            <RentalIncome
-                rentalIncome={rentalIncome}
-                onRentalIncomeChange={onRentalIncomeChange}
-            />
-            <Expenses rentalIncome={rentalIncome} />
+            <button
+                className="border p-2 font-bold mb-10"
+                onClick={() => setShowForm(!showForm)}
+            >
+                Show Form
+            </button>
+
+            {showForm && (
+                <>
+                    <PropertyInformation />
+                    <PurchaseInformation
+                        purchasePrice={purchasePrice}
+                        onPurchasePriceChange={onPurchasePriceChange}
+                    />
+                    <LoanForm purchasePrice={purchasePrice} />
+                    <RentalIncome
+                        rentalIncome={rentalIncome}
+                        onRentalIncomeChange={onRentalIncomeChange}
+                    />
+                    <Expenses rentalIncome={rentalIncome} />
+                </>
+            )}
         </div>
     );
 }
