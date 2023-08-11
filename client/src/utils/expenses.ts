@@ -1,23 +1,24 @@
 interface Expenses {
     propertyTaxes: number;
     insurance: number;
-    repairsAndMaintenance: number;
-    vacancy: number;
-    capitalExpenditures: number;
-    managementFees: number;
     electricity: number;
     gas: number;
     water: number;
     HOAfees: number;
     garbage: number;
     other: number;
+    repairsAndMaintenance: number;
+    vacancy: number;
+    capitalExpenditures: number;
+    managementFees: number;
 }
 
 export function calculateExpenses(
     expenses: Expenses,
     monthlyRentalIncome: number
-): number {
-    let sum = 0;
+) {
+    let fixed = 0;
+    let variable = 0;
 
     for (const key in expenses) {
         if (
@@ -26,11 +27,23 @@ export function calculateExpenses(
             key === "capitalExpenditures" ||
             key === "managementFees"
         ) {
-            sum += (expenses[key] / 100) * monthlyRentalIncome;
+            variable += (expenses[key] / 100) * monthlyRentalIncome;
         } else {
-            sum += expenses[key as keyof Expenses];
+            fixed += expenses[key as keyof Expenses];
         }
     }
 
-    return sum;
+    return {
+        variable,
+        fixed,
+    };
+}
+
+export function calculateTotalExpenses(
+    expenses: Expenses,
+    monthlyRentalIncome: number
+) {
+    const totalExpenses = calculateExpenses(expenses, monthlyRentalIncome);
+
+    return totalExpenses.fixed + totalExpenses.variable;
 }
