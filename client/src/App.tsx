@@ -6,7 +6,7 @@ import PurchaseInformation from "./components/PurchaseInformation";
 import RentalIncome from "./components/RentalIncome";
 import Expenses from "./components/Expenses";
 import PropertyInformation from "./components/PropertyInformation";
-import Returns from "./components/Returns";
+import Results from "./components/Results";
 
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -23,7 +23,8 @@ function App() {
     return (
         <div className="bg-slate-100 ml-20 w-10/12 p-10">
             <Header />
-            <Returns rentalIncome={rentalIncome} />
+
+            <Results rentalIncome={rentalIncome} />
 
             <PropertyInformation />
             <PurchaseInformation

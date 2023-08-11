@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { calculateExpenses } from "../utils/expenses.ts";
+import { calculateTotalExpenses } from "../utils/expenses.ts";
 
 interface Expenses {
     propertyTaxes: number;
@@ -47,7 +47,7 @@ export default function Expenses({ rentalIncome }: { rentalIncome: number }) {
     const onExpensesFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        setTotalExpenses(calculateExpenses(expensesValues, rentalIncome));
+        setTotalExpenses(calculateTotalExpenses(expensesValues, rentalIncome));
     };
 
     return (
