@@ -13,7 +13,7 @@
     <br> 
 </p>
 
-What problems do Real Estate Investors have?
+## Table of Contents
 
 -   [About](#about)
 -   [Getting Started](#getting_started)
@@ -34,16 +34,16 @@ It is one of the best websites for Real Estate Investors.
 
 ## Getting started
 
-## What do Real Estate Investors do daily?
+## 🛠 Build Using
 
--   [Typescript]()
--   [React]()
+-   [React](https://react.dev/)
+-   [Typescript](https://www.typescriptlang.org/)
 -   [Tailwindcss](https://tailwindcss.com/)
--   [Some charting tool]()
--   [Flaticon]()
--   [ReactIcons]()
+-   [Recharts](https://recharts.org/en-US)
+-   [Flaticon](https://www.flaticon.com/)
+-   [ReactIcons](https://react-icons.github.io/react-icons/)
 
-## Authors <a name = "authors" ></a>
+## 📃 Authors <a name = "authors" ></a>
 
 -   Keep track of your personal budget
 -   Keep track of your net worth
