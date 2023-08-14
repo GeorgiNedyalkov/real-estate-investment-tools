@@ -1,45 +1,17 @@
 import { useState } from "react";
 import PropertyCard from "./PropertyCard";
+import { Property } from "../interfaces/IProperty";
 
-export interface Property {
-    streetAddress: string;
-    city: string;
-    state: string;
-    zipCode: string;
-    bedrooms?: number;
-    bathrooms?: number;
-    size?: number;
-    yearBuilt?: number;
-    description?: string;
-}
-
-const INITIAL_PROPERTY_INFO: Property = {
-    streetAddress: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    bedrooms: 0,
-    bathrooms: 0,
-    size: 0,
-    yearBuilt: 0,
-    description: "",
-};
-
-export default function PropertyInformation() {
-    const [propertyInformation, setPropertyInformation] = useState(
-        INITIAL_PROPERTY_INFO
-    );
-
+export default function PropertyInformation({
+    propertyInformation,
+    onPropertyChange,
+}: {
+    propertyInformation: Property;
+    onPropertyChange: React.ChangeEventHandler<
+        HTMLInputElement | HTMLTextAreaElement
+    >;
+}) {
     const [isDetailed, setIsDetailed] = useState<boolean>(false);
-
-    const onPropertyChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        setPropertyInformation({
-            ...propertyInformation,
-            [e.target.name]: e.target.value,
-        });
-    };
 
     return (
         <div className="flex justify-between w-6/12">

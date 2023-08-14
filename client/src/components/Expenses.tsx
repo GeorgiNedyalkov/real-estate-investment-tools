@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { calculateTotalExpenses } from "../utils/expenses.ts";
 
-interface Expenses {
+export interface Expenses {
     propertyTaxes: number;
     insurance: number;
     repairsAndMaintenance: number;

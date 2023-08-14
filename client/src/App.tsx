@@ -1,17 +1,21 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
-import LoanForm from "./components/LoanForm";
-import PurchaseInformation from "./components/PurchaseInformation";
-import RentalIncome from "./components/RentalIncome";
-import Expenses from "./components/Expenses";
-import PropertyInformation from "./components/PropertyInformation";
 import Results from "./components/Results";
+import LoanForm from "./components/LoanForm";
+import Expenses from "./components/Expenses";
+import RentalIncome from "./components/RentalIncome";
+import PurchaseInformation from "./components/PurchaseInformation";
+import PropertyInformation from "./components/PropertyInformation";
+import { Property } from "./interfaces/IProperty";
 
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
     const [rentalIncome, setRentalIncome] = useState(0);
     const [showForm, setShowForm] = useState(false);
+    const [propertyInformation, setPropertyInformation] = useState(
+        INITIAL_PROPERTY_INFO
+    );
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchasePrice(+e.target.value);
@@ -19,6 +23,15 @@ function App() {
 
     const onRentalIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setRentalIncome(+e.target.value);
+    };
+
+    const onPropertyChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        setPropertyInformation({
+            ...propertyInformation,
+            [e.target.name]: e.target.value,
+        });
     };
 
     return (
@@ -36,7 +49,10 @@ function App() {
 
             {showForm && (
                 <>
-                    <PropertyInformation />
+                    <PropertyInformation
+                        propertyInformation={propertyInformation}
+                        onPropertyChange={onPropertyChange}
+                    />
                     <PurchaseInformation
                         purchasePrice={purchasePrice}
                         onPurchasePriceChange={onPurchasePriceChange}
@@ -54,3 +70,15 @@ function App() {
 }
 
 export default App;
+
+const INITIAL_PROPERTY_INFO: Property = {
+    streetAddress: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    bedrooms: 0,
+    bathrooms: 0,
+    size: 0,
+    yearBuilt: 0,
+    description: "",
+};
