@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Results from "./components/Results";
 import LoanForm from "./components/LoanForm";
-import Expenses from "./components/Expenses";
+import ExpensesForm from "./components/ExpensesForm";
 import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
@@ -62,7 +62,7 @@ function App() {
                         rentalIncome={rentalIncome}
                         onRentalIncomeChange={onRentalIncomeChange}
                     />
-                    <Expenses rentalIncome={rentalIncome} />
+                    <ExpensesForm rentalIncome={rentalIncome} />
                 </>
             )}
         </div>

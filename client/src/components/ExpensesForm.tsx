@@ -1,20 +1,6 @@
 import { useState } from "react";
 import { calculateTotalExpenses } from "../utils/expenses.ts";
-
-export interface Expenses {
-    propertyTaxes: number;
-    insurance: number;
-    repairsAndMaintenance: number;
-    vacancy: number;
-    capitalExpenditures: number;
-    managementFees: number;
-    electricity: number;
-    gas: number;
-    water: number;
-    HOAfees: number;
-    garbage: number;
-    other: number;
-}
+import { Expenses } from "../interfaces/IExpenses.tsx";
 
 const EXPENSES_INITIAL_STATE: Expenses = {
     propertyTaxes: 0,
@@ -31,7 +17,11 @@ const EXPENSES_INITIAL_STATE: Expenses = {
     other: 0,
 };
 
-export default function Expenses({ rentalIncome }: { rentalIncome: number }) {
+export default function ExpensesForm({
+    rentalIncome,
+}: {
+    rentalIncome: number;
+}) {
     const [expensesValues, setExepnsesValues] = useState(
         EXPENSES_INITIAL_STATE
     );
