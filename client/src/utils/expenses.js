@@ -1,7 +1,6 @@
-function calculateExpenses(expenses, monthlyRentalIncome) {
+export function calculateExpenses(expenses, monthlyRentalIncome) {
     var sum = 0;
     for (var key in expenses) {
-        console.log(key);
         if (
             key === "repairsAndMaintenance" ||
             key === "vacancy" ||
@@ -29,4 +28,4 @@ var totalExpenses = {
     garbage: 10,
     other: 10,
 };
-console.log(calculateExpenses(totalExpenses, 1000));
+// console.log(calculateExpenses(totalExpenses, 1000));
