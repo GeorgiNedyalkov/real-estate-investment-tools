@@ -38,7 +38,7 @@ export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
 
     return (
         <div className="w-6/12 my-20">
-            <h2 className="text-2xl font-bold mb-5">Load Details</h2>
+            <h2 className="text-2xl font-bold mb-5">Loan Details</h2>
 
             <div className="flex justify-between">
                 <form onSubmit={onFormSubmit} className="flex flex-col gap-5">
