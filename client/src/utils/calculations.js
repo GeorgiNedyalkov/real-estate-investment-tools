@@ -18,7 +18,7 @@ function calculateLoan(purchasePrice, downpayment, annualInterestRate, years) {
         principal *
         ((monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
             (Math.pow(1 + monthlyInterestRate, loanTerm) - 1));
-    return monthlyPayment.toFixed(0);
+    return monthlyPayment;
 }
 
 function calculateExpenses(expenses) {
