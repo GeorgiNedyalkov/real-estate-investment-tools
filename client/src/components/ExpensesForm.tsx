@@ -2,42 +2,21 @@ import { useState } from "react";
 import { calculateTotalExpenses } from "../utils/expenses.ts";
 import { Expenses } from "../interfaces/IExpenses.tsx";
 
-const EXPENSES_INITIAL_STATE: Expenses = {
-    propertyTaxes: 0,
-    insurance: 0,
-    repairsAndMaintenance: 0,
-    vacancy: 0,
-    capitalExpenditures: 0,
-    managementFees: 0,
-    electricity: 0,
-    gas: 0,
-    water: 0,
-    HOAfees: 0,
-    garbage: 0,
-    other: 0,
-};
-
 export default function ExpensesForm({
     rentalIncome,
+    expenses,
+    onExpensesChange,
 }: {
     rentalIncome: number;
+    expenses: Expenses;
+    onExpensesChange: React.ChangeEventHandler<HTMLInputElement>;
 }) {
-    const [expensesValues, setExepnsesValues] = useState(
-        EXPENSES_INITIAL_STATE
-    );
     const [totalExpenses, setTotalExpenses] = useState(0);
-
-    const onExpensesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setExepnsesValues({
-            ...expensesValues,
-            [e.target.name]: Number(e.target.value),
-        });
-    };
 
     const onExpensesFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        setTotalExpenses(calculateTotalExpenses(expensesValues, rentalIncome));
+        setTotalExpenses(calculateTotalExpenses(expenses, rentalIncome));
     };
 
     return (
@@ -55,7 +34,7 @@ export default function ExpensesForm({
                             name="propertyTaxes"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.propertyTaxes}
+                            value={expenses.propertyTaxes}
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
@@ -66,7 +45,7 @@ export default function ExpensesForm({
                             name="insurance"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.insurance}
+                            value={expenses.insurance}
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
@@ -77,12 +56,12 @@ export default function ExpensesForm({
                             name="repairsAndMaintenance"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.repairsAndMaintenance}
+                            value={expenses.repairsAndMaintenance}
                             onChange={onExpensesChange}
                         />
                         <p>
                             {"$" +
-                                (expensesValues.repairsAndMaintenance / 100) *
+                                (expenses.repairsAndMaintenance / 100) *
                                     rentalIncome}
                         </p>
                         <p>/ month</p>
@@ -94,13 +73,10 @@ export default function ExpensesForm({
                             name="vacancy"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.vacancy}
+                            value={expenses.vacancy}
                             onChange={onExpensesChange}
                         />
-                        <p>
-                            {"$" +
-                                (expensesValues.vacancy / 100) * rentalIncome}
-                        </p>
+                        <p>{"$" + (expenses.vacancy / 100) * rentalIncome}</p>
                         <p>/ month</p>
                     </div>
                     <div className="w-97 flex items-center justify-between">
@@ -109,12 +85,12 @@ export default function ExpensesForm({
                             name="capitalExpenditures"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.capitalExpenditures}
+                            value={expenses.capitalExpenditures}
                             onChange={onExpensesChange}
                         />
                         <p>
                             {"$" +
-                                (expensesValues.capitalExpenditures / 100) *
+                                (expenses.capitalExpenditures / 100) *
                                     rentalIncome}
                         </p>
                         <p>/ month</p>
@@ -126,13 +102,12 @@ export default function ExpensesForm({
                             name="managementFees"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.managementFees}
+                            value={expenses.managementFees}
                             onChange={onExpensesChange}
                         />
                         <span>
                             {"$" +
-                                (expensesValues.managementFees / 100) *
-                                    rentalIncome}
+                                (expenses.managementFees / 100) * rentalIncome}
                         </span>
                         <p>/ month</p>
                     </div>
@@ -142,7 +117,7 @@ export default function ExpensesForm({
                             name="electricity"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.electricity}
+                            value={expenses.electricity}
                             onChange={onExpensesChange}
                         />
                     </div>
@@ -153,7 +128,7 @@ export default function ExpensesForm({
                             name="water"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.water}
+                            value={expenses.water}
                             onChange={onExpensesChange}
                         />
                     </div>
@@ -163,7 +138,7 @@ export default function ExpensesForm({
                             name="HOAfees"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.HOAfees}
+                            value={expenses.HOAfees}
                             onChange={onExpensesChange}
                         />
                     </div>
@@ -173,7 +148,7 @@ export default function ExpensesForm({
                             name="garbage"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.garbage}
+                            value={expenses.garbage}
                             onChange={onExpensesChange}
                         />
                     </div>
@@ -183,7 +158,7 @@ export default function ExpensesForm({
                             name="other"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expensesValues.other}
+                            value={expenses.other}
                             onChange={onExpensesChange}
                         />
                     </div>

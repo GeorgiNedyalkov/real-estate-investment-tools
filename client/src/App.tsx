@@ -8,6 +8,7 @@ import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
 import { Property } from "./interfaces/IProperty";
+import { Expenses } from "./interfaces/IExpenses";
 
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -17,6 +18,7 @@ function App() {
     const [propertyInformation, setPropertyInformation] = useState(
         INITIAL_PROPERTY_INFO
     );
+    const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchasePrice(+e.target.value);
@@ -32,6 +34,13 @@ function App() {
         setPropertyInformation({
             ...propertyInformation,
             [e.target.name]: e.target.value,
+        });
+    };
+
+    const onExpensesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setExpenses({
+            ...expenses,
+            [e.target.name]: Number(e.target.value),
         });
     };
 
@@ -52,7 +61,9 @@ function App() {
                 Show Results
             </button>
 
-            {showResults && <Results rentalIncome={rentalIncome} />}
+            {showResults && (
+                <Results rentalIncome={rentalIncome} expenses={expenses} />
+            )}
 
             {showForm && (
                 <>
@@ -69,7 +80,11 @@ function App() {
                         rentalIncome={rentalIncome}
                         onRentalIncomeChange={onRentalIncomeChange}
                     />
-                    <ExpensesForm rentalIncome={rentalIncome} />
+                    <ExpensesForm
+                        expenses={expenses}
+                        rentalIncome={rentalIncome}
+                        onExpensesChange={onExpensesChange}
+                    />
                 </>
             )}
         </div>
@@ -88,4 +103,19 @@ const INITIAL_PROPERTY_INFO: Property = {
     size: 0,
     yearBuilt: 0,
     description: "",
+};
+
+const INITIAL_EXPENSES: Expenses = {
+    propertyTaxes: 0,
+    insurance: 0,
+    repairsAndMaintenance: 0,
+    vacancy: 0,
+    capitalExpenditures: 0,
+    managementFees: 0,
+    electricity: 0,
+    gas: 0,
+    water: 0,
+    HOAfees: 0,
+    garbage: 0,
+    other: 0,
 };

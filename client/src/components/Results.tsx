@@ -2,32 +2,38 @@ import Returns from "./Returns";
 import ReturnsLineChart from "./ReturnsLineChart";
 import ExpensesPieChart from "./ExpensesPieChart";
 import ReportLineChart from "./ReportLineChart";
+import { Expenses } from "../interfaces/IExpenses";
 
-export default function Results({ rentalIncome }: { rentalIncome: number }) {
+export default function Results({
+    rentalIncome,
+    expenses,
+}: {
+    rentalIncome: number;
+    expenses: Expenses;
+}) {
     return (
         <>
-            <h2>Results</h2>
-            <ReturnsLineChart />
-            <ExpensesBreakdown />
+            <ExpensesBreakdown expenses={expenses} />
             <Returns rentalIncome={rentalIncome} />
+            <ReturnsLineChart />
             <ReportLineChart />
         </>
     );
 }
 
-function ExpensesBreakdown() {
+function ExpensesBreakdown({ expenses }: { expenses: Expenses }) {
     return (
         <>
             <h2 className="font-bold text-2xl">Monthly Expense Breakdown</h2>
             <div className="flex items-center">
-                <ExpensesPieChart />
-                <ExpensesTable />
+                <ExpensesPieChart expenses={expenses} />
+                <ExpensesTable expenses={expenses} />
             </div>
         </>
     );
 }
 
-function ExpensesTable() {
+function ExpensesTable({ expenses }: { expenses: Expenses }) {
     return (
         <table>
             <thead>
@@ -40,28 +46,38 @@ function ExpensesTable() {
             <tbody>
                 <tr>
                     <td className="px-2">Mortgage $433</td>
-                    <td className="px-2">Electricity $10</td>
-                    <td className="px-2">Vacancy $14</td>
+                    <td className="px-2">
+                        Electricity ${expenses.electricity}
+                    </td>
+                    <td className="px-2">Vacancy ${expenses.vacancy}</td>
                 </tr>
                 <tr>
-                    <td className="px-2">Taxes $16</td>
-                    <td className="px-2">Gas $10</td>
-                    <td className="px-2">Maintenance $4</td>
+                    <td className="px-2">Taxes ${expenses.propertyTaxes}</td>
+                    <td className="px-2">Gas ${expenses.gas}</td>
+                    <td className="px-2">
+                        Maintenance ${expenses.repairsAndMaintenance}
+                    </td>
                 </tr>
                 <tr>
-                    <td className="px-2">Insurance $433</td>
-                    <td className="px-2">Water & Sewer $10</td>
-                    <td className="px-2">CapEx $22</td>
+                    <td className="px-2">Insurance ${expenses.insurance}</td>
+                    <td className="px-2">Water & Sewer ${expenses.water}</td>
+                    <td className="px-2">
+                        CapEx ${expenses.capitalExpenditures}
+                    </td>
                 </tr>
                 <tr>
                     <td className="px-2">Variable Expeses $40</td>
-                    <td className="px-2">HOA Fees $0</td>
-                    <td className="px-2">Management Fees $0</td>
+                    <td className="px-2">HOA Fees ${expenses.HOAfees}</td>
+                    <td className="px-2">
+                        Management Fees ${expenses.managementFees}
+                    </td>
                 </tr>
                 <tr>
                     <td className="px-2">Mortgage $433</td>
-                    <td className="px-2">Maintenen$10</td>
-                    <td className="px-2">Vacancy $13</td>
+                    <td className="px-2">
+                        Maintenen${expenses.repairsAndMaintenance}
+                    </td>
+                    <td className="px-2">Vacancy ${expenses.vacancy}</td>
                 </tr>
             </tbody>
         </table>

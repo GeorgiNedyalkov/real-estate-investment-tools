@@ -1,6 +1,7 @@
 import { PieChart, Pie, Cell } from "recharts";
+import { Expenses } from "../interfaces/IExpenses";
 
-export default function ExpensesPieChart() {
+export default function ExpensesPieChart({ expenses }: { expenses: Expenses }) {
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
     return (
