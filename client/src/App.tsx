@@ -56,7 +56,6 @@ function App() {
     };
 
     const onCalculateMonthlyMortgage = (values: LoanTerms) => {
-        console.log(values);
         const monthlyPayment = calculateLoan(
             purchasePrice,
             values.downpayment,
@@ -153,7 +152,7 @@ const INITIAL_EXPENSES: Expenses = {
 };
 
 const INITIAL_LOAN_TERMS: LoanTerms = {
-    downpayment: 5,
+    downpayment: 0,
     interestRate: 0,
     loanYears: 0,
 };

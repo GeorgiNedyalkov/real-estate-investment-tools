@@ -11,22 +11,20 @@ export default function LoanForm({
     purchasePrice: number;
     loanTerms: LoanTerms;
     onLoanTermsChange: React.ChangeEventHandler<
-        HTMLInputElement | HTMLButtonElement
+        HTMLInputElement | HTMLSelectElement
     >;
     onCalculateMonthlyMortgage: (values: LoanTerms) => void;
 }) {
-    const [downpayment, setDownpayment] = useState(0);
     const [monthlyLoanPayment, setMonthlyLoanPayment] = useState("");
-
-    const onDownpaymentChange = (e) => {
-        e.preventDefault();
-        setDownpayment(+e.target.value);
-    };
 
     const onFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        if (!downpayment || !loanTerms.interestRate || !loanTerms.loanYears) {
+        if (
+            !loanTerms.downpayment ||
+            !loanTerms.interestRate ||
+            !loanTerms.loanYears
+        ) {
             return;
         }
 
@@ -35,7 +33,7 @@ export default function LoanForm({
         setMonthlyLoanPayment(
             calculateLoan(
                 +purchasePrice,
-                downpayment,
+                loanTerms.downpayment,
                 loanTerms.interestRate,
                 loanTerms.loanYears
             )
@@ -50,34 +48,19 @@ export default function LoanForm({
                 <form onSubmit={onFormSubmit} className="flex flex-col gap-5">
                     <div className="flex">
                         <label>Downpayment</label>
-                        <button
+                        <select
+                            id="downpayment"
+                            name="downpayment"
                             className="border w-24 ml-2 mr-2 hover:bg-slate-200 focus:border-slate-500"
-                            onClick={onDownpaymentChange}
-                            value={0}
+                            value={loanTerms.downpayment}
+                            onChange={onLoanTermsChange}
                         >
-                            0%
-                        </button>
-                        <button
-                            className="border w-24 mr-2 hover:bg-slate-200 focus:border-slate-500"
-                            onClick={onDownpaymentChange}
-                            value={10}
-                        >
-                            10%
-                        </button>
-                        <button
-                            className="border w-24 mr-2 hover:bg-slate-200 focus:border-slate-500"
-                            onClick={onDownpaymentChange}
-                            value={20}
-                        >
-                            20%
-                        </button>
-                        <button
-                            className="border w-24 mr-2 hover:bg-slate-200 focus:border-slate-500"
-                            onClick={onDownpaymentChange}
-                            value={25}
-                        >
-                            25%
-                        </button>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                        </select>
+                        %
                     </div>
                     <label>
                         Interest Rate
