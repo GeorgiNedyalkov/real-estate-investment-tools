@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { calculateLoan } from "../utils/loan_calculator.ts";
+import { LoanTerms } from "../interfaces/ILoanTerms.tsx";
 
-export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
+export default function LoanForm({
+    purchasePrice,
+    loanTerms,
+    onLoanTermsChange,
+    onCalculateMonthlyMortgage,
+}: {
+    purchasePrice: number;
+    loanTerms: LoanTerms;
+    onLoanTermsChange: React.ChangeEventHandler<
+        HTMLInputElement | HTMLButtonElement
+    >;
+    onCalculateMonthlyMortgage: (values: LoanTerms) => void;
+}) {
     const [downpayment, setDownpayment] = useState(0);
-    const [interestRate, setInterestRate] = useState(0);
-    const [loanYears, setLoanYears] = useState(0);
     const [monthlyLoanPayment, setMonthlyLoanPayment] = useState("");
 
     const onDownpaymentChange = (e) => {
@@ -12,23 +23,22 @@ export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
         setDownpayment(+e.target.value);
     };
 
-    const onInterestRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInterestRate(+e.target.value);
-    };
-
-    const onLoanYearsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLoanYears(+e.target.value);
-    };
-
     const onFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        if (!downpayment || !interestRate || !loanYears) {
+        if (!downpayment || !loanTerms.interestRate || !loanTerms.loanYears) {
             return;
         }
 
+        onCalculateMonthlyMortgage(loanTerms);
+
         setMonthlyLoanPayment(
-            calculateLoan(+purchasePrice, downpayment, interestRate, loanYears)
+            calculateLoan(
+                +purchasePrice,
+                downpayment,
+                loanTerms.interestRate,
+                loanTerms.loanYears
+            )
         );
     };
 
@@ -72,20 +82,22 @@ export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
                     <label>
                         Interest Rate
                         <input
+                            name="interestRate"
                             className="border w-24 mx-2 p-2"
                             type="number"
-                            value={interestRate}
-                            onChange={onInterestRateChange}
+                            value={loanTerms.interestRate}
+                            onChange={onLoanTermsChange}
                         />
                         %
                     </label>
                     <label>
                         Loan Term
                         <input
+                            name="loanYears"
                             className="border w-24 mx-2 p-2"
                             type="number"
-                            value={loanYears}
-                            onChange={onLoanYearsChange}
+                            value={loanTerms.loanYears}
+                            onChange={onLoanTermsChange}
                         />
                         years
                     </label>

@@ -9,6 +9,8 @@ import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
 import { Property } from "./interfaces/IProperty";
 import { Expenses } from "./interfaces/IExpenses";
+import { LoanTerms } from "./interfaces/ILoanTerms";
+import { calculateLoan } from "./utils/loan_calculator.ts";
 
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
@@ -19,6 +21,8 @@ function App() {
         INITIAL_PROPERTY_INFO
     );
     const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+    const [loanTerms, setLoanTerms] = useState(INITIAL_LOAN_TERMS);
+    const [monthlyLoanPayment, setMonthlyLoanPayment] = useState("");
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchasePrice(+e.target.value);
@@ -44,6 +48,25 @@ function App() {
         });
     };
 
+    const onLoanTermsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLoanTerms({
+            ...loanTerms,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const onCalculateMonthlyMortgage = (values: LoanTerms) => {
+        console.log(values);
+        const monthlyPayment = calculateLoan(
+            purchasePrice,
+            values.downpayment,
+            values.interestRate,
+            values.loanYears
+        );
+
+        setMonthlyLoanPayment(monthlyPayment);
+    };
+
     return (
         <div className="bg-slate-100 ml-20 w-10/12 p-10">
             <Header />
@@ -62,7 +85,11 @@ function App() {
             </button>
 
             {showResults && (
-                <Results rentalIncome={rentalIncome} expenses={expenses} />
+                <Results
+                    rentalIncome={rentalIncome}
+                    expenses={expenses}
+                    monthlyLoanPayment={monthlyLoanPayment}
+                />
             )}
 
             {showForm && (
@@ -75,7 +102,12 @@ function App() {
                         purchasePrice={purchasePrice}
                         onPurchasePriceChange={onPurchasePriceChange}
                     />
-                    <LoanForm purchasePrice={purchasePrice} />
+                    <LoanForm
+                        purchasePrice={purchasePrice}
+                        loanTerms={loanTerms}
+                        onLoanTermsChange={onLoanTermsChange}
+                        onCalculateMonthlyMortgage={onCalculateMonthlyMortgage}
+                    />
                     <RentalIncome
                         rentalIncome={rentalIncome}
                         onRentalIncomeChange={onRentalIncomeChange}
@@ -118,4 +150,10 @@ const INITIAL_EXPENSES: Expenses = {
     HOAfees: 0,
     garbage: 0,
     other: 0,
+};
+
+const INITIAL_LOAN_TERMS: LoanTerms = {
+    downpayment: 5,
+    interestRate: 0,
+    loanYears: 0,
 };

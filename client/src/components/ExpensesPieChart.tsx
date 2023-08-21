@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { Expenses } from "../interfaces/IExpenses";
 
 export default function ExpensesPieChart({ expenses }: { expenses: Expenses }) {
@@ -17,13 +17,16 @@ export default function ExpensesPieChart({ expenses }: { expenses: Expenses }) {
                 dataKey="value"
             >
                 {data.map((entry, index) => (
-                    <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                        aria-label="1"
-                    />
+                    <>
+                        <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
+                            aria-label="1"
+                        />
+                    </>
                 ))}
             </Pie>
+            <Tooltip />
         </PieChart>
     );
 }

@@ -2,38 +2,63 @@ import Returns from "./Returns";
 import ReturnsLineChart from "./ReturnsLineChart";
 import ExpensesPieChart from "./ExpensesPieChart";
 import ReportLineChart from "./ReportLineChart";
+import ResultsBreakdown from "./ResultsBreakdown";
 import { Expenses } from "../interfaces/IExpenses";
 
 export default function Results({
     rentalIncome,
     expenses,
+    monthlyLoanPayment,
 }: {
     rentalIncome: number;
     expenses: Expenses;
+    monthlyLoanPayment: string;
 }) {
     return (
         <>
-            <ExpensesBreakdown expenses={expenses} />
+            <p>Rental Income {rentalIncome}</p>
+            <div className="flex justify-around">
+                <ReturnsLineChart />
+                <ResultsBreakdown />
+            </div>
+            <ExpensesBreakdown
+                expenses={expenses}
+                monthlyLoanPayment={monthlyLoanPayment}
+            />
             <Returns rentalIncome={rentalIncome} />
-            <ReturnsLineChart />
             <ReportLineChart />
         </>
     );
 }
 
-function ExpensesBreakdown({ expenses }: { expenses: Expenses }) {
+function ExpensesBreakdown({
+    expenses,
+    monthlyLoanPayment,
+}: {
+    expenses: Expenses;
+    monthlyLoanPayment: string;
+}) {
     return (
         <>
             <h2 className="font-bold text-2xl">Monthly Expense Breakdown</h2>
             <div className="flex items-center">
                 <ExpensesPieChart expenses={expenses} />
-                <ExpensesTable expenses={expenses} />
+                <ExpensesTable
+                    expenses={expenses}
+                    monthlyLoanPayment={monthlyLoanPayment}
+                />
             </div>
         </>
     );
 }
 
-function ExpensesTable({ expenses }: { expenses: Expenses }) {
+function ExpensesTable({
+    expenses,
+    monthlyLoanPayment,
+}: {
+    expenses: Expenses;
+    monthlyLoanPayment: string;
+}) {
     return (
         <table>
             <thead>
@@ -45,7 +70,9 @@ function ExpensesTable({ expenses }: { expenses: Expenses }) {
             </thead>
             <tbody>
                 <tr>
-                    <td className="px-2">Mortgage $433</td>
+                    <td className="px-2">
+                        Mortgage $433 and {monthlyLoanPayment}
+                    </td>
                     <td className="px-2">
                         Electricity ${expenses.electricity}
                     </td>
@@ -68,16 +95,13 @@ function ExpensesTable({ expenses }: { expenses: Expenses }) {
                 <tr>
                     <td className="px-2">Variable Expeses $40</td>
                     <td className="px-2">HOA Fees ${expenses.HOAfees}</td>
-                    <td className="px-2">
-                        Management Fees ${expenses.managementFees}
-                    </td>
+                    <td className="px-2">Garbage ${expenses.garbage}</td>
                 </tr>
                 <tr>
                     <td className="px-2">Mortgage $433</td>
                     <td className="px-2">
-                        Maintenen${expenses.repairsAndMaintenance}
+                        Maintenance ${expenses.repairsAndMaintenance}
                     </td>
-                    <td className="px-2">Vacancy ${expenses.vacancy}</td>
                 </tr>
             </tbody>
         </table>
