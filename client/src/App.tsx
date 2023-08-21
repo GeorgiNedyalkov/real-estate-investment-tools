@@ -12,7 +12,8 @@ import { Property } from "./interfaces/IProperty";
 function App() {
     const [purchasePrice, setPurchasePrice] = useState(0);
     const [rentalIncome, setRentalIncome] = useState(0);
-    const [showForm, setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState(true);
+    const [showResults, setShowResults] = useState(true);
     const [propertyInformation, setPropertyInformation] = useState(
         INITIAL_PROPERTY_INFO
     );
@@ -37,15 +38,21 @@ function App() {
     return (
         <div className="bg-slate-100 ml-20 w-10/12 p-10">
             <Header />
-
-            <Results rentalIncome={rentalIncome} />
-
             <button
                 className="border p-2 font-bold mb-10"
                 onClick={() => setShowForm(!showForm)}
             >
                 Show Form
             </button>
+
+            <button
+                className="border p-2 font-bold mb-10"
+                onClick={() => setShowResults(!showResults)}
+            >
+                Show Results
+            </button>
+
+            {showResults && <Results rentalIncome={rentalIncome} />}
 
             {showForm && (
                 <>
