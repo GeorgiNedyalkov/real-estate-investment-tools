@@ -1,35 +1,16 @@
-const expenses = {
-    propertyTaxes: 10,
-    insurance: 10,
-    electricity: 10,
-    gas: 10,
-    water: 10,
-    HOAfees: 0,
-    garbage: 0,
-    other: 0,
-    repairsAndMaintenance: 5,
-    vacancy: 5,
-    capitalExpenditures: 5,
-    managementFees: 5,
-};
-
-const loanDetails = {
-    downpayment: 20,
-    annualInterestRate: 5,
-    years: 30,
-};
-
-const purchasePrice = 100000;
-const rentalIncome = 1000;
+import { calculateExpenses } from "./expenses";
+import { calculateLoan } from "./loan_calculator";
+import { Expenses } from "../interfaces/IExpenses";
+import { LoanTerms } from "../interfaces/ILoanTerms";
 
 export function analyzeProperty(
-    purchasePrice,
-    loanDetails,
-    monthlyRent,
-    expenses
+    purchasePrice: number,
+    loanDetails: LoanTerms,
+    monthlyRent: number,
+    expenses: Expenses
 ) {
     // initialize constants
-    const { downpayment, annualInterestRate, years } = loanDetails;
+    const { downpayment, interestRate, loanYears } = loanDetails;
     const investmentAmount = (downpayment / 100) * purchasePrice;
 
     // calculate income
@@ -47,11 +28,8 @@ export function analyzeProperty(
     const expenseGrossIncomeRatio = (operatingExpenses / grossIncome) * 100;
 
     // calculate monthly mortgage payment
-    const monthlyMortgagePayment = calculateLoan(
-        purchasePrice,
-        downpayment,
-        annualInterestRate,
-        years
+    const monthlyMortgagePayment = Number(
+        calculateLoan(purchasePrice, downpayment, interestRate, loanYears)
     );
 
     const totalExpenses = operatingExpenses + monthlyMortgagePayment * 12;
@@ -64,19 +42,6 @@ export function analyzeProperty(
     const totalCashFlow = netOperatingIncome - monthlyMortgagePayment * 12;
     const cashROI = (totalCashFlow / investmentAmount) * 100;
 
-    console.log({
-        monthlyCashFlow: totalCashFlow / 12,
-        totalCashFlow,
-        cashROI,
-        grossIncome,
-        investmentAmount,
-        totalExpenses,
-        netOperatingIncome,
-        expenseGrossIncomeRatio,
-        mortgageExpenseRatio,
-        monthlyMortgagePayment,
-    });
-
     return {
         monthlyCashFlow: totalCashFlow / 12,
         totalCashFlow,
@@ -89,40 +54,4 @@ export function analyzeProperty(
         mortgageExpenseRatio,
         monthlyMortgagePayment,
     };
-}
-
-analyzeProperty(purchasePrice, loanDetails, rentalIncome, expenses);
-
-function calculateExpenses(expenses, monthlyRentalIncome) {
-    let fixed = 0;
-    let variable = 0;
-
-    for (const key in expenses) {
-        if (
-            key === "repairsAndMaintenance" ||
-            key === "vacancy" ||
-            key === "capitalExpenditures" ||
-            key === "managementFees"
-        ) {
-            variable += (expenses[key] / 100) * monthlyRentalIncome;
-        } else {
-            fixed += expenses[key];
-        }
-    }
-
-    return {
-        variable,
-        fixed,
-    };
-}
-
-function calculateLoan(purchasePrice, downpayment, annualInterestRate, years) {
-    var principal = purchasePrice - (downpayment / 100) * purchasePrice;
-    var monthlyInterestRate = annualInterestRate / 12 / 100;
-    var loanTerm = years * 12;
-    var monthlyPayment =
-        principal *
-        ((monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
-            (Math.pow(1 + monthlyInterestRate, loanTerm) - 1));
-    return monthlyPayment;
 }

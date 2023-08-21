@@ -1,10 +1,31 @@
-export default function Returns({ rentalIncome }: { rentalIncome: number }) {
+import { Expenses } from "../interfaces/IExpenses";
+import { LoanTerms } from "../interfaces/ILoanTerms";
+import { analyzeProperty } from "../utils/analysis";
+
+export default function Returns({
+    rentalIncome,
+    purchasePrice,
+    loanTerms,
+    expenses,
+}: {
+    rentalIncome: number;
+    purchasePrice: number;
+    loanTerms: LoanTerms;
+    expenses: Expenses;
+}) {
     const expectedOperatingExpenses = rentalIncome * 0.5;
     const vacancy = 0.03;
     const netOperatingIncome = rentalIncome - rentalIncome * vacancy;
 
+    function calculateResults() {
+        analyzeProperty(purchasePrice, loanTerms, rentalIncome, expenses);
+        console.log({ purchasePrice, loanTerms, rentalIncome, expenses });
+    }
     return (
         <div className="mb-40">
+            <button className="border p-2" onClick={calculateResults}>
+                Calculate Results
+            </button>
             <h2 className="text-2xl font-bold mb-5">Returns</h2>
             <div className="mb-20 flex gap-10">
                 <div className="w-40">

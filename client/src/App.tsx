@@ -88,6 +88,8 @@ function App() {
                     rentalIncome={rentalIncome}
                     expenses={expenses}
                     monthlyLoanPayment={monthlyLoanPayment}
+                    purchasePrice={purchasePrice}
+                    loanTerms={loanTerms}
                 />
             )}
 
