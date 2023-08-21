@@ -14,6 +14,7 @@ export default function ReturnsLineChart() {
             <Legend />
             <Line type="monotone" dataKey="rentalIncome" stroke="#8884d8" />
             <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
+            <Line type="monotone" dataKey="return" stroke="#82ca9d" />
         </LineChart>
     );
 }
@@ -21,47 +22,56 @@ export default function ReturnsLineChart() {
 const data = [
     {
         name: "Year 1",
-        expenses: 4000,
-        rentalIncome: 2400,
+        expenses: 400,
+        rentalIncome: 240,
+        return: 100,
     },
     {
         name: "Year 2",
-        expenses: 4000,
-        rentalIncome: 1398,
+        expenses: 400,
+        rentalIncome: 138,
+        return: 100,
     },
     {
         name: "Year 3",
-        expenses: 4000,
-        rentalIncome: 9800,
+        expenses: 400,
+        rentalIncome: 900,
+        return: 100,
     },
     {
         name: "Year 4",
         expenses: 400,
-        rentalIncome: 3908,
+        rentalIncome: 308,
+        return: 100,
     },
     {
         name: "Year 5",
-        expenses: 4000,
-        rentalIncome: 4800,
+        expenses: 400,
+        rentalIncome: 480,
+        return: 100,
     },
     {
         name: "Year 10",
-        expenses: 4000,
-        rentalIncome: 3800,
+        expenses: 400,
+        rentalIncome: 380,
+        return: 100,
     },
     {
         name: "Year 15",
-        expenses: 4000,
-        rentalIncome: 4300,
+        expenses: 400,
+        rentalIncome: 430,
+        return: 100,
     },
     {
         name: "Year 25",
-        rentalIncome: 4300,
-        expenses: 4000,
+        expenses: 400,
+        rentalIncome: 430,
+        return: 100,
     },
     {
         name: "Year 30",
-        rentalIncome: 4300,
-        expenses: 4000,
+        expenses: 400,
+        rentalIncome: 430,
+        return: 100,
     },
 ];

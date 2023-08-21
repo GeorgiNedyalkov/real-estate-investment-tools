@@ -58,6 +58,7 @@ export default function ExpensesForm({
                             value={expensesValues.propertyTaxes}
                             onChange={onExpensesChange}
                         />
+                        <p>/ month</p>
                     </div>
                     <div className="w-97 flex items-center justify-between">
                         <label>Insurance</label>
@@ -68,8 +69,9 @@ export default function ExpensesForm({
                             value={expensesValues.insurance}
                             onChange={onExpensesChange}
                         />
+                        <p>/ month</p>
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                         <label>Repairs and Maintenance</label>
                         <input
                             name="repairsAndMaintenance"
@@ -83,9 +85,10 @@ export default function ExpensesForm({
                                 (expensesValues.repairsAndMaintenance / 100) *
                                     rentalIncome}
                         </p>
+                        <p>/ month</p>
                     </div>
 
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                         <label>Vacancy</label>
                         <input
                             name="vacancy"
@@ -98,6 +101,7 @@ export default function ExpensesForm({
                             {"$" +
                                 (expensesValues.vacancy / 100) * rentalIncome}
                         </p>
+                        <p>/ month</p>
                     </div>
                     <div className="w-97 flex items-center justify-between">
                         <label>Capital Expenditures</label>
@@ -113,6 +117,7 @@ export default function ExpensesForm({
                                 (expensesValues.capitalExpenditures / 100) *
                                     rentalIncome}
                         </p>
+                        <p>/ month</p>
                     </div>
 
                     <div className="w-97 flex items-center justify-between">
@@ -129,6 +134,7 @@ export default function ExpensesForm({
                                 (expensesValues.managementFees / 100) *
                                     rentalIncome}
                         </span>
+                        <p>/ month</p>
                     </div>
                     <div className="w-97 flex items-center justify-between">
                         <label>Electricity</label>

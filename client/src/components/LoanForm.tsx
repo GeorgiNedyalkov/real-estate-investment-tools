@@ -32,10 +32,6 @@ export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
         );
     };
 
-    const resetForm = () => {
-        setMonthlyLoanPayment("");
-    };
-
     return (
         <div className="w-6/12 my-20">
             <h2 className="text-2xl font-bold mb-5">Loan Details</h2>
@@ -107,13 +103,6 @@ export default function LoanForm({ purchasePrice }: { purchasePrice: number }) {
                     </p>
                 </div>
             </div>
-
-            <button
-                onClick={resetForm}
-                className="p-2 my-2 w-24 cursor-pointer hover:font-bold"
-            >
-                Reset
-            </button>
         </div>
     );
 }
