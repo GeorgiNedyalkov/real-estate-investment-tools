@@ -3,7 +3,7 @@ type ReturnsBreakdownProps = {
     cashFlow: number;
     expenses: number;
     rentalIncome: number;
-    return: number;
+    return: string;
 };
 
 export default function ReturnsBreakdown({

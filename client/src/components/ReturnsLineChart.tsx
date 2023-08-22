@@ -20,8 +20,6 @@ export default function ReturnsLineChart({
     const expensesAnnyalGrowthPercentage = 1;
     const cashInvested = 30_711;
 
-    console.log(totalExpenses);
-
     const data1 = calculateLineChartData(
         totalExpenses,
         rentalIncome,
@@ -67,5 +65,5 @@ const INITIAL_SELECTED_YEAR = {
     cashFlow: 0,
     expenses: 0,
     rentalIncome: 0,
-    return: 0,
+    return: "0",
 };
