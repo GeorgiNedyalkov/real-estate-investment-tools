@@ -41,10 +41,8 @@ export function calculateLineChartData(
             cashFlow,
             expenses,
             rentalIncome,
-            return: ((cashFlow / cashInvested) * 100).toFixed(2),
+            return: (cashFlow / cashInvested) * 100,
         };
-
-        console.log(currentYear);
 
         results.push(currentYear);
 
