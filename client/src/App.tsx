@@ -13,8 +13,8 @@ import { LoanTerms } from "./interfaces/ILoanTerms";
 import { calculateLoan } from "./utils/loan_calculator.ts";
 
 function App() {
-    const [purchasePrice, setPurchasePrice] = useState(0);
-    const [rentalIncome, setRentalIncome] = useState(0);
+    const [purchasePrice, setPurchasePrice] = useState(100_000);
+    const [rentalIncome, setRentalIncome] = useState(1000);
     const [showForm, setShowForm] = useState(true);
     const [showResults, setShowResults] = useState(true);
     const [propertyInformation, setPropertyInformation] = useState(
@@ -139,22 +139,22 @@ const INITIAL_PROPERTY_INFO: Property = {
 };
 
 const INITIAL_EXPENSES: Expenses = {
-    propertyTaxes: 0,
-    insurance: 0,
-    repairsAndMaintenance: 0,
-    vacancy: 0,
-    capitalExpenditures: 0,
-    managementFees: 0,
-    electricity: 0,
-    gas: 0,
-    water: 0,
-    HOAfees: 0,
-    garbage: 0,
+    propertyTaxes: 10,
+    insurance: 10,
+    repairsAndMaintenance: 5,
+    vacancy: 5,
+    capitalExpenditures: 5,
+    managementFees: 5,
+    electricity: 20,
+    gas: 20,
+    water: 20,
+    HOAfees: 10,
+    garbage: 10,
     other: 0,
 };
 
 const INITIAL_LOAN_TERMS: LoanTerms = {
-    downpayment: 0,
-    interestRate: 0,
-    loanYears: 0,
+    downpayment: 20,
+    interestRate: 5,
+    loanYears: 30,
 };
