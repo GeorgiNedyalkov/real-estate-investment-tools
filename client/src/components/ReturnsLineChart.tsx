@@ -65,5 +65,5 @@ const INITIAL_SELECTED_YEAR = {
     cashFlow: 0,
     expenses: 0,
     rentalIncome: 0,
-    return: "0",
+    return: 0,
 };

@@ -3,7 +3,7 @@ type ReturnsBreakdownProps = {
     cashFlow: number;
     expenses: number;
     rentalIncome: number;
-    return: string;
+    return: number;
 };
 
 export default function ReturnsBreakdown({
@@ -35,7 +35,9 @@ export default function ReturnsBreakdown({
             </div>
             <div>
                 <p className="font-semibold">CoC ROI</p>
-                <h4 className="text-xl font-bold">${selectedYear.return}% </h4>
+                <h4 className="text-xl font-bold">
+                    ${selectedYear.return.toFixed(2)}%{" "}
+                </h4>
             </div>
         </div>
     );
