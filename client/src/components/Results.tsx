@@ -22,13 +22,11 @@ export default function Results({
         <>
             <p>Rental Income {rentalIncome}</p>
             <div className="flex justify-around">
-                {/* Returns */}
                 <ReturnsLineChart
                     expenses={expenses}
                     rentalIncome={rentalIncome}
                 />
             </div>
-            {/* Expenses */}
             <ExpensesBreakdown
                 expenses={expenses}
                 monthlyLoanPayment={monthlyLoanPayment}
