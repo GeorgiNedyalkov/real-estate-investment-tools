@@ -2,7 +2,6 @@ import Returns from "./Returns";
 import ReturnsLineChart from "./ReturnsLineChart";
 import ExpensesPieChart from "./ExpensesPieChart";
 import ReportLineChart from "./ReportLineChart";
-import ResultsBreakdown from "./ResultsBreakdown";
 import { Expenses } from "../interfaces/IExpenses";
 import { LoanTerms } from "../interfaces/ILoanTerms";
 
@@ -23,9 +22,13 @@ export default function Results({
         <>
             <p>Rental Income {rentalIncome}</p>
             <div className="flex justify-around">
-                <ReturnsLineChart />
-                <ResultsBreakdown />
+                {/* Returns */}
+                <ReturnsLineChart
+                    expenses={expenses}
+                    rentalIncome={rentalIncome}
+                />
             </div>
+            {/* Expenses */}
             <ExpensesBreakdown
                 expenses={expenses}
                 monthlyLoanPayment={monthlyLoanPayment}

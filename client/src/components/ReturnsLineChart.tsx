@@ -1,77 +1,71 @@
+import { useState, useEffect } from "react";
 import { LineChart, XAxis, YAxis, Line, Legend, Tooltip } from "recharts";
+import ReturnsBreakdown from "./ReturnsBreakdown";
+import { Expenses } from "../interfaces/IExpenses";
+import { calculateLineChartData } from "../utils/calculations.ts";
+import { calculateTotalExpenses } from "../utils/expenses.ts";
+import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
 
-export default function ReturnsLineChart() {
+export default function ReturnsLineChart({
+    expenses,
+    rentalIncome,
+}: {
+    expenses: Expenses;
+    rentalIncome: number;
+}) {
+    const [selectedYear, setSelectedYear] = useState(INITIAL_SELECTED_YEAR);
+    const totalExpenses = calculateTotalExpenses(expenses, rentalIncome);
+    // these need to be passed from a parent component down
+    const incomeAnnualGrowthPercentage = 1;
+    const expensesAnnyalGrowthPercentage = 1;
+    const cashInvested = 30_711;
+
+    console.log(totalExpenses);
+
+    const data1 = calculateLineChartData(
+        totalExpenses,
+        rentalIncome,
+        incomeAnnualGrowthPercentage,
+        expensesAnnyalGrowthPercentage,
+        cashInvested
+    );
+
+    const onLineChartClick = (e: CategoricalChartState) => {
+        const dataEntry = e.activePayload![0].payload;
+        setSelectedYear(dataEntry);
+    };
+
+    useEffect(() => {
+        setSelectedYear(data1[0]);
+    }, []);
+
     return (
-        <LineChart
-            width={750}
-            height={500}
-            data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="rentalIncome" stroke="#8884d8" />
-            <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
-            <Line type="monotone" dataKey="return" stroke="#82ca9d" />
-        </LineChart>
+        <div className="flex gap-[200px]">
+            <LineChart
+                width={750}
+                height={500}
+                data={data1}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                onClick={onLineChartClick}
+            >
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="year" stroke="#8884d8" />
+                <Line type="monotone" dataKey="rentalIncome" stroke="#8884d8" />
+                <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="return" stroke="#ca8282" />
+            </LineChart>
+            <ReturnsBreakdown selectedYear={selectedYear} />
+        </div>
     );
 }
 
-const data = [
-    {
-        name: "Year 1",
-        expenses: 400,
-        rentalIncome: 240,
-        return: 100,
-    },
-    {
-        name: "Year 2",
-        expenses: 400,
-        rentalIncome: 138,
-        return: 100,
-    },
-    {
-        name: "Year 3",
-        expenses: 400,
-        rentalIncome: 900,
-        return: 100,
-    },
-    {
-        name: "Year 4",
-        expenses: 400,
-        rentalIncome: 308,
-        return: 100,
-    },
-    {
-        name: "Year 5",
-        expenses: 400,
-        rentalIncome: 480,
-        return: 100,
-    },
-    {
-        name: "Year 10",
-        expenses: 400,
-        rentalIncome: 380,
-        return: 100,
-    },
-    {
-        name: "Year 15",
-        expenses: 400,
-        rentalIncome: 430,
-        return: 100,
-    },
-    {
-        name: "Year 25",
-        expenses: 400,
-        rentalIncome: 430,
-        return: 100,
-    },
-    {
-        name: "Year 30",
-        expenses: 400,
-        rentalIncome: 430,
-        return: 100,
-    },
-];
+const INITIAL_SELECTED_YEAR = {
+    name: "",
+    cashFlow: 0,
+    expenses: 0,
+    rentalIncome: 0,
+    return: 0,
+};
