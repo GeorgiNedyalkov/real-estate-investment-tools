@@ -20,3 +20,20 @@ export function calculateLoan(
 // 593
 
 // todo: add property taxes, homeowners insurance, HOA Fees and PMI
+
+export function calculateRemainingLoanBalance(
+    principal: number,
+    interestRate: number,
+    loanTerm: number
+): number {
+    const numberOfPayments = loanTerm * 12;
+    const paymentsMade = 11;
+    const monthlyInterestRate = interestRate / 12 / 100;
+
+    return (
+        principal *
+        ((Math.pow(1 + monthlyInterestRate, numberOfPayments) -
+            Math.pow(1 + monthlyInterestRate, paymentsMade)) /
+            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1))
+    );
+}
