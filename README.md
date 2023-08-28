@@ -25,6 +25,33 @@
 -   [Authors](#authors)
 -   [Acknowledgments](#acknowledgement)
 
+## Getting started
+
+1. Clone this repo
+
+```
+git clone https://github.com/GeorgiNedyalkov/real-estate-investment-tools.git
+```
+
+2. Change direcorty to client folder
+
+```
+cd real-estate-investment-tools/client
+
+```
+
+3. Install dependencies
+
+```
+yarn
+```
+
+4. Run the app locally
+
+```
+yarn dev
+```
+
 ## Inspiration and Contributions
 
 This calculator is based almost entirely on the calculator of Bigger Pockets.
@@ -32,7 +59,13 @@ It is one of the best websites for Real Estate Investors.
 
 [BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
 
-## Getting started
+## Features:
+
+-   Analyze deals and save your reports for potential properties.
+-   Calculate potential Cash Flow and Return on Investment
+-   Keep track of your Loan Details, amortization and payment schedule.
+-   Monitor charts to see future cash flow, expenses and rental income.
+-   Breakdown of your montlhy expenses.
 
 ## 🛠 Build Using
 
@@ -45,6 +78,4 @@ It is one of the best websites for Real Estate Investors.
 
 ## 📃 Authors <a name = "authors" ></a>
 
--   Keep track of your personal budget
--   Keep track of your net worth
--   Analyze deals
+-   [Georgi Nedyalkov](https://www.georginedyalkov.com/)
