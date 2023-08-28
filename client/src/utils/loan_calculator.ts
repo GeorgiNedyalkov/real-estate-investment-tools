@@ -24,10 +24,10 @@ export function calculateLoan(
 export function calculateRemainingLoanBalance(
     principal: number,
     interestRate: number,
-    loanTerm: number
+    loanTerm: number,
+    paymentsMade: number
 ): number {
     const numberOfPayments = loanTerm * 12;
-    const paymentsMade = 11;
     const monthlyInterestRate = interestRate / 12 / 100;
 
     return (
