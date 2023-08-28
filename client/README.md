@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# Real Estate Investment Tools
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="./client//public/favicon.ico" alt="Project logo"></a>
+</p>
 
-Currently, two official plugins are available:
+<h3 align="center">Real Estate Rental Property Calculator</h3>
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+<p align="center"> Calculate your profitability, expenses and loan details to make better investment decisions.
+    <br> 
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Table of Contents
 
--   Configure the top-level `parserOptions` property like this:
+-   [About](#about)
+-   [Getting Started](#getting_started)
+-   [Features](#features)
+-   [Built Using](#built_using)
+-   [Authors](#authors)
+-   [Inspiration](#acknowledgement)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Getting started
+
+1. Clone this repo
+
+```
+git clone https://github.com/GeorgiNedyalkov/real-estate-investment-tools.git
 ```
 
--   Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
--   Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Change direcorty to client folder
 
-## Research
+```
+cd real-estate-investment-tools/client
 
-## Models
+```
 
-1. Net Worth Model
-2. Financial Model
-3. Network Model
-4. Lead Generation Model
-5. Acquisition Model
+3. Install dependencies
 
-## What do Real Estate Investors do daily?
+```
+yarn
+```
 
--   Search for new rental properties to invest in?
--   Search for people who can help them find the properties, manage the properties,
-    renovate the properties, finance the properties.
--   Educate themsemselves on how to become better?
+4. Run the app locally
 
-Daily, weekly, mothly, yearly tasks:
+```
+yarn dev
+```
 
--   Keep track of your personal budget
--   Keep track of your net worth
--   Analyze deals
+## <a name="feaures">Features</a>:
+
+-   Analyze deals and save your reports for potential properties.
+-   Calculate potential Cash Flow and Return on Investment
+-   Keep track of your Loan Details, amortization and payment schedule.
+-   Monitor charts to see future cash flow, expenses and rental income.
+-   Breakdown of your montlhy expenses.
+
+## 🛠 Build Using
+
+-   [React](https://react.dev/)
+-   [Typescript](https://www.typescriptlang.org/)
+-   [Tailwindcss](https://tailwindcss.com/)
+-   [Recharts](https://recharts.org/en-US)
+-   [Flaticon](https://www.flaticon.com/)
+-   [ReactIcons](https://react-icons.github.io/react-icons/)
+
+## 📃 <a name = "authors" >Authors</a>
+
+-   [Georgi Nedyalkov](https://www.georginedyalkov.com/)
+
+## Inspiration and Contributions
+
+This calculator is based almost entirely on the calculator of Bigger Pockets.
+It is one of the best websites for Real Estate Investors.
+
+[BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
