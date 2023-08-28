@@ -18,14 +18,16 @@ export default function Returns({
     const netOperatingIncome = rentalIncome - rentalIncome * vacancy;
 
     function calculateResults() {
-        analyzeProperty(purchasePrice, loanTerms, rentalIncome, expenses);
-        console.log({ purchasePrice, loanTerms, rentalIncome, expenses });
+        const analysis = analyzeProperty(
+            purchasePrice,
+            loanTerms,
+            rentalIncome,
+            expenses
+        );
+        console.log(analysis);
     }
     return (
         <div className="mb-40">
-            <button className="border p-2" onClick={calculateResults}>
-                Calculate Results
-            </button>
             <h2 className="text-2xl font-bold mb-5">Returns</h2>
             <div className="mb-20 flex gap-10">
                 <div className="w-40">
@@ -71,6 +73,9 @@ export default function Returns({
                     </h3>
                 </div>
             </div>
+            <button className="mt-10 border p-2" onClick={calculateResults}>
+                Calculate Results
+            </button>
         </div>
     );
 }

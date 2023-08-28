@@ -39,6 +39,32 @@ export function calculateExpenses(
     };
 }
 
+export function calculateExpensesBreakdown(
+    expenses: Expenses,
+    monthlyRentalIncome: number
+) {
+    const fixed = {};
+    const variable = {};
+
+    for (const key in expenses) {
+        if (
+            key === "repairsAndMaintenance" ||
+            key === "vacancy" ||
+            key === "capitalExpenditures" ||
+            key === "managementFees"
+        ) {
+            variable[key] = (expenses[key] / 100) * monthlyRentalIncome;
+        } else {
+            fixed[key] = expenses[key as keyof Expenses];
+        }
+    }
+
+    return {
+        variable,
+        fixed,
+    };
+}
+
 export function calculateTotalExpenses(
     expenses: Expenses,
     monthlyRentalIncome: number
