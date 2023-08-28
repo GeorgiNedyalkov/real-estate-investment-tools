@@ -17,13 +17,10 @@
 
 -   [About](#about)
 -   [Getting Started](#getting_started)
--   [Deployment](#deployment)
--   [Usage](#usage)
+-   [Features](#features)
 -   [Built Using](#built_using)
--   [TODO](../TODO.md)
--   [Contributing](../CONTRIBUTING.md)
 -   [Authors](#authors)
--   [Acknowledgments](#acknowledgement)
+-   [Inspiration](#acknowledgement)
 
 ## Getting started
 
@@ -52,14 +49,7 @@ yarn
 yarn dev
 ```
 
-## Inspiration and Contributions
-
-This calculator is based almost entirely on the calculator of Bigger Pockets.
-It is one of the best websites for Real Estate Investors.
-
-[BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
-
-## Features:
+## <a name="feaures">Features</a>:
 
 -   Analyze deals and save your reports for potential properties.
 -   Calculate potential Cash Flow and Return on Investment
@@ -76,6 +66,13 @@ It is one of the best websites for Real Estate Investors.
 -   [Flaticon](https://www.flaticon.com/)
 -   [ReactIcons](https://react-icons.github.io/react-icons/)
 
-## 📃 Authors <a name = "authors" ></a>
+## 📃 <a name = "authors" >Authors</a>
 
 -   [Georgi Nedyalkov](https://www.georginedyalkov.com/)
+
+## Inspiration and Contributions
+
+This calculator is based almost entirely on the calculator of Bigger Pockets.
+It is one of the best websites for Real Estate Investors.
+
+[BiggerPockets](https://www.biggerpockets.com/rental-property-calculator)
