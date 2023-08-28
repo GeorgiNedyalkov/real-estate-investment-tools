@@ -3,50 +3,79 @@ import { Expenses } from "../interfaces/IExpenses";
 export default function ExpensesTable({
     expenses,
     monthlyLoanPayment,
+    fixedExpenses,
+    variableExpenses,
 }: {
     expenses: Expenses;
     monthlyLoanPayment: string;
+    fixedExpenses: number;
+    variableExpenses: number;
 }) {
+    const allExpenses =
+        fixedExpenses +
+        variableExpenses +
+        Number(monthlyLoanPayment) +
+        expenses.propertyTaxes +
+        expenses.insurance;
     return (
-        <table>
+        <table className="border">
             <thead>
                 <tr>
-                    <th className="p-2">Total Expenses</th>
-                    <th className="p-2">Fixed Expenses</th>
-                    <th className="p-2">Variable Expenses</th>
+                    <th className="p-2">Total Expenses $ {allExpenses}</th>
+                    <th className="p-2">Fixed Expenses ${fixedExpenses}</th>
+                    <th className="p-2">
+                        Variable Expenses ${variableExpenses}
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td className="px-2">
-                        Mortgage $433 and {monthlyLoanPayment}
-                    </td>
+                    <TableData>
+                        <Dot color={"bg-[#0088FE]"} />
+                        Mortgage ${monthlyLoanPayment}
+                    </TableData>
+
                     <td className="px-2">
                         Electricity ${expenses.electricity}
                     </td>
                     <td className="px-2">Vacancy ${expenses.vacancy}</td>
                 </tr>
                 <tr>
-                    <td className="px-2">Taxes ${expenses.propertyTaxes}</td>
-                    <td className="px-2">Gas ${expenses.gas}</td>
+                    <TableData>
+                        <Dot color={"bg-[#00C49F]"} />
+                        Taxes ${expenses.propertyTaxes}
+                    </TableData>
+                    <td className="px-2">
+                        Gas <span>${expenses.gas}</span>
+                    </td>
                     <td className="px-2">
                         Maintenance ${expenses.repairsAndMaintenance}
                     </td>
                 </tr>
                 <tr>
-                    <td className="px-2">Insurance ${expenses.insurance}</td>
+                    <TableData>
+                        <Dot color="bg-[#FFBB28]" />
+                        Insurance ${expenses.insurance}
+                    </TableData>
                     <td className="px-2">Water & Sewer ${expenses.water}</td>
                     <td className="px-2">
                         CapEx ${expenses.capitalExpenditures}
                     </td>
                 </tr>
                 <tr>
-                    <td className="px-2">Variable Expeses $40</td>
+                    <TableData>
+                        <Dot color="bg-[#FF8042]" />
+                        Variable Expenses {variableExpenses}
+                    </TableData>
                     <td className="px-2">HOA Fees ${expenses.HOAfees}</td>
                     <td className="px-2">Garbage ${expenses.garbage}</td>
                 </tr>
                 <tr>
-                    <td className="px-2">Mortgage $433</td>
+                    <TableData>
+                        <Dot color={"bg-[#4f42ff]"} />
+                        Fixed Expeses {fixedExpenses}
+                    </TableData>
+                    <td className="px-2">Garbage ${expenses.garbage}</td>
                     <td className="px-2">
                         Maintenance ${expenses.repairsAndMaintenance}
                     </td>
@@ -55,3 +84,11 @@ export default function ExpensesTable({
         </table>
     );
 }
+
+const TableData = ({ children }: { children: React.ReactNode }) => {
+    return <td className="px-2 flex items-center gap-1">{children}</td>;
+};
+
+const Dot = ({ color }: { color: string }) => {
+    return <div className={`${color} w-3 h-3 rounded-full`}></div>;
+};

@@ -1,55 +1,65 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
-import { Expenses } from "../interfaces/IExpenses";
 
-export default function ExpensesPieChart({ expenses }: { expenses: Expenses }) {
-    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+export default function ExpensesPieChart({
+    fixedExpenses,
+    variableExpenses,
+    taxes,
+    insurance,
+    monthlyLoanPayment,
+}: {
+    monthlyLoanPayment: string;
+    fixedExpenses: number;
+    variableExpenses: number;
+    taxes: number;
+    insurance: number;
+}) {
+    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#4f42ff"];
+
+    const data = [
+        {
+            name: "Mortgage",
+            value: Number(monthlyLoanPayment),
+        },
+        {
+            name: "Taxes",
+            value: taxes,
+        },
+        {
+            name: "Insurance",
+            value: insurance,
+        },
+        {
+            name: "Variable Expenses",
+            value: variableExpenses,
+        },
+        {
+            name: "Fixed Expenses",
+            value: fixedExpenses,
+        },
+    ];
 
     return (
-        <PieChart width={800} height={400}>
+        <PieChart width={300} height={300}>
             <Pie
                 data={data}
-                cx={120}
-                cy={200}
+                dataKey="value"
+                cx={150}
+                cy={150}
                 innerRadius={60}
                 outerRadius={80}
                 fill="#8884d8"
                 paddingAngle={5}
-                dataKey="value"
             >
                 {data.map((entry, index) => (
-                    <>
-                        <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                            aria-label="1"
-                        />
-                    </>
+                    <Cell
+                        name={entry.name}
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                        aria-label="1"
+                    />
                 ))}
             </Pie>
             <Tooltip />
         </PieChart>
     );
 }
-
-const data = [
-    {
-        name: "Mortgage",
-        value: 433,
-    },
-    {
-        name: "Taxes",
-        value: 16,
-    },
-    {
-        name: "Insurance",
-        value: 16,
-    },
-    {
-        name: "Variable Expenses",
-        value: 40,
-    },
-    {
-        name: "Fixed Expenses",
-        value: 30,
-    },
-];
