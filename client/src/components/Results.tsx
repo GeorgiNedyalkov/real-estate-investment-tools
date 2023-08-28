@@ -2,6 +2,7 @@ import Returns from "./Returns";
 import ReturnsLineChart from "./ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./ExpensesBreakdown";
+import ReportTable from "./ReportTable";
 import { Expenses } from "../interfaces/IExpenses";
 import { LoanTerms } from "../interfaces/ILoanTerms";
 
@@ -19,16 +20,16 @@ export default function Results({
     monthlyLoanPayment: string;
 }) {
     return (
-        <>
-            <p>Rental Income {rentalIncome}</p>
-            <div className="flex justify-around">
+        <div className="w-10/12 border flex flex-col items-center mx-auto gap-20">
+            <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
                     rentalIncome={rentalIncome}
                 />
-            </div>
+            </section>
             <ExpensesBreakdown
                 expenses={expenses}
+                rentalIncome={rentalIncome}
                 monthlyLoanPayment={monthlyLoanPayment}
             />
             <Returns
@@ -37,7 +38,10 @@ export default function Results({
                 loanTerms={loanTerms}
                 expenses={expenses}
             />
-            <ReportLineChart />
-        </>
+            <div className="flex flex-col items-center gap-5">
+                <ReportLineChart />
+                <ReportTable />
+            </div>
+        </div>
     );
 }
