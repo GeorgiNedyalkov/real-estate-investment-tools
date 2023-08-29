@@ -1,7 +1,6 @@
-import { calculateExpenses } from "./expenses";
-import { calculateLoan } from "./loan_calculator";
-import { Expenses } from "../interfaces/interfaces";
-import { LoanTerms } from "../interfaces/interfaces.ts";
+import { calculateExpenses } from "./expenses.ts";
+import { calculateLoan } from "./loan_calculator.ts";
+import { Expenses, LoanTerms } from "../interfaces/interfaces.ts";
 
 export function analyzeProperty(
     purchasePrice: number,
@@ -12,6 +11,12 @@ export function analyzeProperty(
     // initialize constants
     const { downpayment, interestRate, loanYears } = loanDetails;
     const investmentAmount = (downpayment / 100) * purchasePrice;
+    const monthlyMortgagePayment = calculateLoan(
+        purchasePrice,
+        downpayment,
+        interestRate,
+        loanYears
+    );
 
     // calculate income
     const monthlyGrossIncome =
@@ -28,12 +33,7 @@ export function analyzeProperty(
     const expenseGrossIncomeRatio = (operatingExpenses / grossIncome) * 100;
 
     // calculate monthly mortgage payment
-    const monthlyMortgagePayment = calculateLoan(
-        purchasePrice,
-        downpayment,
-        interestRate,
-        loanYears
-    );
+
     const totalExpenses = operatingExpenses + monthlyMortgagePayment * 12;
     const mortgageExpenseRatio =
         (monthlyMortgagePayment /
@@ -42,7 +42,6 @@ export function analyzeProperty(
 
     // calculate total cash flow and cash ROI
     const totalCashFlow = netOperatingIncome - monthlyMortgagePayment * 12;
-    console.log({ totalCashFlow });
     const cashROI = (totalCashFlow / investmentAmount) * 100;
 
     return {

@@ -1,5 +1,5 @@
 import { Expenses, LoanTerms } from "../interfaces/interfaces";
-import { analyzeProperty } from "../utils/analysis";
+import { analyzeProperty } from "../utils/analysis.ts";
 
 export default function Returns({
     rentalIncome,
@@ -16,10 +16,8 @@ export default function Returns({
     const vacancy = 0.03;
     const netOperatingIncome = rentalIncome - rentalIncome * vacancy;
 
-    console.log("Returns component rendered");
-
     function calculateResults() {
-        console.log("Function call");
+        // debugger;
         const analysis = analyzeProperty(
             purchasePrice,
             loanTerms,

@@ -1,12 +1,12 @@
 export function calculateLoan(
     purchasePrice: number,
     downpayment: number,
-    annualInterestRate: number,
+    interestRate: number,
     years: number
 ) {
     const principal = purchasePrice - (downpayment / 100) * purchasePrice;
 
-    const monthlyInterestRate = annualInterestRate / 12 / 100;
+    const monthlyInterestRate = interestRate / 12 / 100;
 
     const loanTerm = years * 12;
 
