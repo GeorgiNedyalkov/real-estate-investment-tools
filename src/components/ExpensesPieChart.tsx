@@ -18,7 +18,7 @@ export default function ExpensesPieChart({
     const data = [
         {
             name: "Mortgage",
-            value: monthlyLoanPayment,
+            value: Math.round(monthlyLoanPayment),
         },
         {
             name: "Taxes",
@@ -55,7 +55,7 @@ export default function ExpensesPieChart({
                         name={entry.name}
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}
-                        aria-label="1"
+                        aria-label="2"
                     />
                 ))}
             </Pie>
