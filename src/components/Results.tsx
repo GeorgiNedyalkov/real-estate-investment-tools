@@ -3,8 +3,7 @@ import ReturnsLineChart from "./ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./ExpensesBreakdown";
 import ReportTable from "./ReportTable";
-import { Expenses } from "../interfaces/IExpenses";
-import { LoanTerms } from "../interfaces/ILoanTerms";
+import { Expenses, LoanTerms } from "../interfaces/interfaces";
 
 export default function Results({
     purchasePrice,

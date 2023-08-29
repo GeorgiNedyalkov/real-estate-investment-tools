@@ -7,9 +7,7 @@ import ExpensesForm from "./components/ExpensesForm";
 import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
-import { Property } from "./interfaces/IProperty";
-import { Expenses } from "./interfaces/IExpenses";
-import { LoanTerms } from "./interfaces/ILoanTerms";
+import { Property, Expenses, LoanTerms } from "./interfaces/interfaces";
 import { calculateLoan } from "./utils/loan_calculator.ts";
 
 function App() {

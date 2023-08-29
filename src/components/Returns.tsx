@@ -1,5 +1,4 @@
-import { Expenses } from "../interfaces/IExpenses";
-import { LoanTerms } from "../interfaces/ILoanTerms";
+import { Expenses, LoanTerms } from "../interfaces/interfaces";
 import { analyzeProperty } from "../utils/analysis";
 
 export default function Returns({

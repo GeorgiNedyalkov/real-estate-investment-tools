@@ -1,7 +1,7 @@
 import { calculateExpenses } from "./expenses";
 import { calculateLoan } from "./loan_calculator";
-import { Expenses } from "../interfaces/IExpenses";
-import { LoanTerms } from "../interfaces/ILoanTerms";
+import { Expenses } from "../interfaces/interfaces";
+import { LoanTerms } from "../interfaces/interfaces.ts";
 
 export function analyzeProperty(
     purchasePrice: number,

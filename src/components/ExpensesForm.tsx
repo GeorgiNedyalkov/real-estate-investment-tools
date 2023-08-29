@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { calculateTotalExpenses } from "../utils/expenses.ts";
-import { Expenses } from "../interfaces/IExpenses.tsx";
+import { Expenses } from "../interfaces/interfaces.tsx";
 
 export default function ExpensesForm({
     rentalIncome,
@@ -138,7 +138,7 @@ export default function ExpensesForm({
                             name="HOAfees"
                             type="number"
                             className="border p-2 ml-2"
-                            value={expenses.HOAfees}
+                            value={expenses.HOAFees}
                             onChange={onExpensesChange}
                         />
                     </div>

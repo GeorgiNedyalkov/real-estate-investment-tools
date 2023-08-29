@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import ExpensesPieChart from "./ExpensesPieChart";
 import ExpensesTable from "./ExpensesTable";
-import { Expenses } from "../interfaces/IExpenses";
 import { calculateExpensesBreakdown } from "../utils/expenses.ts";
 import {
-    ExpensesBreakdown,
+    Expenses,
+    IExpensesBreakdown,
     VariableExpense,
     FixedExpense,
-} from "../interfaces/IExpenses";
+} from "../interfaces/interfaces.tsx";
 
 export default function ExpensesBreakdown({
     expenses,
@@ -19,9 +19,9 @@ export default function ExpensesBreakdown({
     monthlyLoanPayment: number;
 }) {
     const [expensesBreakdown, setExpensesBreakdown] =
-        useState<ExpensesBreakdown>(INITIAL_EXPENSES_BREAKDOWN);
+        useState<IExpensesBreakdown>(INITIAL_EXPENSES_BREAKDOWN);
 
-    function calculateTotalExpenses(expenses: ExpensesBreakdown) {
+    function calculateTotalExpenses(expenses: IExpensesBreakdown) {
         const { variable, fixed } = expenses;
 
         let variableExpenses = 0;

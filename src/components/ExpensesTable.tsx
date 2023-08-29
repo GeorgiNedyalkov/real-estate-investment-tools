@@ -1,4 +1,4 @@
-import { Expenses } from "../interfaces/IExpenses";
+import { Expenses } from "../interfaces/interfaces";
 
 export default function ExpensesTable({
     expenses,
@@ -67,7 +67,7 @@ export default function ExpensesTable({
                         <Dot color="bg-[#FF8042]" />
                         Variable Expenses {variableExpenses}
                     </TableData>
-                    <td className="px-2">HOA Fees ${expenses.HOAfees}</td>
+                    <td className="px-2">HOA Fees ${expenses.HOAFees}</td>
                     <td className="px-2">Garbage ${expenses.garbage}</td>
                 </tr>
                 <tr>

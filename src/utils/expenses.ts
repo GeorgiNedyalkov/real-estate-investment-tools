@@ -2,7 +2,7 @@ import {
     Expenses,
     FixedExpense,
     VariableExpense,
-} from "../interfaces/IExpenses";
+} from "../interfaces/interfaces.ts";
 
 export function calculateExpenses(
     expenses: Expenses,

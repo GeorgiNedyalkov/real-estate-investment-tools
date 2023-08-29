@@ -13,7 +13,7 @@ export interface Expenses {
     other: number;
 }
 
-export interface ExpensesBreakdown {
+export interface IExpensesBreakdown {
     fixed: {
         HOAFees: number;
         electricity: number;
@@ -46,4 +46,22 @@ export interface FixedExpense {
     other: number;
     propertyTaxes: number;
     water: number;
+}
+
+export interface LoanTerms {
+    downpayment: number;
+    interestRate: number;
+    loanYears: number;
+}
+
+export interface Property {
+    streetAddress: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    bedrooms?: number;
+    bathrooms?: number;
+    size?: number;
+    yearBuilt?: number;
+    description?: string;
 }
