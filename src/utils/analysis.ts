@@ -33,7 +33,6 @@ export function analyzeProperty(
     const expenseGrossIncomeRatio = (operatingExpenses / grossIncome) * 100;
 
     // calculate monthly mortgage payment
-
     const totalExpenses = operatingExpenses + monthlyMortgagePayment * 12;
     const mortgageExpenseRatio =
         (monthlyMortgagePayment /
@@ -43,6 +42,8 @@ export function analyzeProperty(
     // calculate total cash flow and cash ROI
     const totalCashFlow = netOperatingIncome - monthlyMortgagePayment * 12;
     const cashROI = (totalCashFlow / investmentAmount) * 100;
+
+    // calculate CAP rate and Pro Forma CAP rate
 
     return {
         monthlyCashFlow: totalCashFlow / 12,
