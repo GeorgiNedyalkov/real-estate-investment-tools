@@ -50,7 +50,7 @@ export default function ExpensesBreakdown({
     return (
         <>
             <h2 className="font-bold text-2xl">Monthly Expense Breakdown</h2>
-            <div className="border flex items-center">
+            <div className="flex items-center">
                 <ExpensesPieChart
                     fixedExpenses={totalExpenses.fixedExpenses}
                     variableExpenses={totalExpenses.variableExpenses}
