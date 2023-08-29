@@ -17,7 +17,10 @@ export default function Returns({
     const vacancy = 0.03;
     const netOperatingIncome = rentalIncome - rentalIncome * vacancy;
 
+    console.log("Returns component rendered");
+
     function calculateResults() {
+        console.log("Function call");
         const analysis = analyzeProperty(
             purchasePrice,
             loanTerms,

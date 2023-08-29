@@ -1,17 +1,8 @@
-interface Expenses {
-    propertyTaxes: number;
-    insurance: number;
-    electricity: number;
-    gas: number;
-    water: number;
-    HOAfees: number;
-    garbage: number;
-    other: number;
-    repairsAndMaintenance: number;
-    vacancy: number;
-    capitalExpenditures: number;
-    managementFees: number;
-}
+import {
+    Expenses,
+    FixedExpense,
+    VariableExpense,
+} from "../interfaces/IExpenses";
 
 export function calculateExpenses(
     expenses: Expenses,
@@ -43,8 +34,22 @@ export function calculateExpensesBreakdown(
     expenses: Expenses,
     monthlyRentalIncome: number
 ) {
-    const fixed = {};
-    const variable = {};
+    const fixed: FixedExpense = {
+        HOAFees: 0,
+        electricity: 0,
+        garbage: 0,
+        insurance: 0,
+        other: 0,
+        propertyTaxes: 0,
+        water: 0,
+    };
+
+    const variable: VariableExpense = {
+        capitalExpenditures: 0,
+        managementFees: 0,
+        repairsAndMaintenance: 0,
+        vacancy: 0,
+    };
 
     for (const key in expenses) {
         if (
@@ -54,14 +59,22 @@ export function calculateExpensesBreakdown(
             key === "managementFees"
         ) {
             variable[key] = (expenses[key] / 100) * monthlyRentalIncome;
-        } else {
-            fixed[key] = expenses[key as keyof Expenses];
+        } else if (
+            key === "HOAFees" ||
+            key === "electricity" ||
+            key === "garbage" ||
+            key === "insurance" ||
+            key === "other" ||
+            key === "propertyTaxes" ||
+            key === "water"
+        ) {
+            fixed[key] = expenses[key];
         }
     }
 
     return {
-        variable,
         fixed,
+        variable,
     };
 }
 

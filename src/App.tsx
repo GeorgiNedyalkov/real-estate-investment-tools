@@ -148,7 +148,7 @@ const INITIAL_EXPENSES: Expenses = {
     electricity: 20,
     gas: 20,
     water: 20,
-    HOAfees: 10,
+    HOAFees: 10,
     garbage: 10,
     other: 0,
 };

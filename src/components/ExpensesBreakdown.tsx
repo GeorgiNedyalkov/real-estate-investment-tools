@@ -3,24 +3,11 @@ import ExpensesPieChart from "./ExpensesPieChart";
 import ExpensesTable from "./ExpensesTable";
 import { Expenses } from "../interfaces/IExpenses";
 import { calculateExpensesBreakdown } from "../utils/expenses.ts";
-
-type ExpensesBreakdown = {
-    fixed: {
-        HOAFees: number;
-        electricity: number;
-        garbage: number;
-        insurance: number;
-        other: number;
-        propertyTaxes: number;
-        water: number;
-    };
-    variable: {
-        capitalExpenditures: number;
-        managementFees: number;
-        repairsAndMaintenance: number;
-        vacancy: number;
-    };
-};
+import {
+    ExpensesBreakdown,
+    VariableExpense,
+    FixedExpense,
+} from "../interfaces/IExpenses";
 
 export default function ExpensesBreakdown({
     expenses,
@@ -31,9 +18,8 @@ export default function ExpensesBreakdown({
     rentalIncome: number;
     monthlyLoanPayment: number;
 }) {
-    const [expensesBreakdown, setExpensesBreakdown] = useState(
-        INITIAL_EXPENSES_BREAKDOWN
-    );
+    const [expensesBreakdown, setExpensesBreakdown] =
+        useState<ExpensesBreakdown>(INITIAL_EXPENSES_BREAKDOWN);
 
     function calculateTotalExpenses(expenses: ExpensesBreakdown) {
         const { variable, fixed } = expenses;
@@ -42,16 +28,16 @@ export default function ExpensesBreakdown({
         let fixedExpenses = 0;
 
         for (const expense in variable) {
-            variableExpenses += variable[expense];
+            variableExpenses += variable[expense as keyof VariableExpense];
         }
 
         for (const expense in fixed) {
-            fixedExpenses += fixed[expense];
+            fixedExpenses += fixed[expense as keyof FixedExpense];
         }
 
         return {
-            variableExpenses,
             fixedExpenses,
+            variableExpenses,
         };
     }
 
