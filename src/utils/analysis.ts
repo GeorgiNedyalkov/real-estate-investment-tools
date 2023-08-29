@@ -44,8 +44,10 @@ export function analyzeProperty(
     const cashROI = (totalCashFlow / investmentAmount) * 100;
 
     // calculate CAP rate and Pro Forma CAP rate
+    const capitalizationRate = (netOperatingIncome / purchasePrice) * 100;
 
     return {
+        capitalizationRate,
         monthlyCashFlow: totalCashFlow / 12,
         totalCashFlow,
         cashROI,

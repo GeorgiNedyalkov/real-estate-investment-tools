@@ -46,8 +46,14 @@ export default function Returns({
                     label="CoC ROI"
                     statistic={analysis.cashROI.toFixed(2) + " %"}
                 />
-                <KPI label="Pro Forma CAP" statistic={3.25 + "%"} />
-                <KPI label="Purchase CAP" statistic={3.25 + "%"} />
+                <KPI
+                    label="Pro Forma CAP"
+                    statistic={analysis.capitalizationRate.toFixed(2) + " %"}
+                />
+                <KPI
+                    label="Purchase CAP"
+                    statistic={analysis.capitalizationRate.toFixed(2) + " %"}
+                />
             </div>
 
             <h2 className="text-2xl font-bold mb-5">50% Rule</h2>
