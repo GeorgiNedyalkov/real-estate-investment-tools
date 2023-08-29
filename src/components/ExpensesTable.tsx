@@ -11,12 +11,14 @@ export default function ExpensesTable({
     fixedExpenses: number;
     variableExpenses: number;
 }) {
-    const allExpenses =
+    const allExpenses = Math.round(
         fixedExpenses +
-        variableExpenses +
-        Number(monthlyLoanPayment) +
-        expenses.propertyTaxes +
-        expenses.insurance;
+            variableExpenses +
+            monthlyLoanPayment +
+            expenses.propertyTaxes +
+            expenses.insurance
+    );
+
     return (
         <table className="border">
             <thead>
@@ -32,7 +34,7 @@ export default function ExpensesTable({
                 <tr>
                     <TableData>
                         <Dot color={"bg-[#0088FE]"} />
-                        Mortgage ${monthlyLoanPayment}
+                        Mortgage ${Math.round(monthlyLoanPayment)}
                     </TableData>
 
                     <td className="px-2">

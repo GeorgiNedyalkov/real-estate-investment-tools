@@ -94,7 +94,7 @@ export default function LoanForm({
                 <div>
                     <h4 className="mb-2 text-xl font-bold">Mothly Payment</h4>
                     <p className="text-xl font-semibold">
-                        {monthlyLoanPayment} $
+                        {Math.round(monthlyLoanPayment)} $
                     </p>
                 </div>
             </div>
