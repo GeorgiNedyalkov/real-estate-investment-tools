@@ -20,67 +20,72 @@ export default function ExpensesTable({
     );
 
     return (
-        <table className="border">
+        <table className="w-[800px]">
             <thead>
-                <tr>
-                    <th className="p-2">Total Expenses $ {allExpenses}</th>
-                    <th className="p-2">Fixed Expenses ${fixedExpenses}</th>
-                    <th className="p-2">
-                        Variable Expenses ${variableExpenses}
-                    </th>
+                <tr className="text-left">
+                    <th className="p-2">Total Expenses</th>
+                    <th className="px-2">${allExpenses}</th>
+                    <th className="p-2">Fixed Expenses</th>
+                    <th className="px-2">${fixedExpenses}</th>
+                    <th className="p-2">Variable Expenses</th>
+                    <th className="px-2">${variableExpenses}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <TableData>
+                    <td className="flex items-center gap-2 px-2">
                         <Dot color={"bg-[#0088FE]"} />
-                        Mortgage ${Math.round(monthlyLoanPayment)}
-                    </TableData>
-
-                    <td className="px-2">
-                        Electricity ${expenses.electricity}
+                        Mortgage
                     </td>
-                    <td className="px-2">Vacancy ${expenses.vacancy}</td>
+                    <TableData>${Math.round(monthlyLoanPayment)}</TableData>
+                    <TableData>Electricity</TableData>
+                    <TableData>${expenses.electricity}</TableData>
+                    <TableData>Vacancy</TableData>
+                    <TableData>${expenses.vacancy}</TableData>
                 </tr>
-                <tr>
-                    <TableData>
+                <tr className="ml-2">
+                    <td className="flex items-center gap-2 px-2">
                         <Dot color={"bg-[#00C49F]"} />
-                        Taxes ${expenses.propertyTaxes}
-                    </TableData>
-                    <td className="px-2">
-                        Gas <span>${expenses.gas}</span>
+                        Taxes
                     </td>
-                    <td className="px-2">
-                        Maintenance ${expenses.repairsAndMaintenance}
-                    </td>
+                    <TableData>${expenses.propertyTaxes}</TableData>
+                    <TableData>Gas</TableData>
+                    <TableData>${expenses.gas} </TableData>
+                    <TableData>Maintenance </TableData>
+                    <TableData>${expenses.repairsAndMaintenance}</TableData>
                 </tr>
                 <tr>
-                    <TableData>
+                    <td className="flex items-center gap-2 px-2">
                         <Dot color="bg-[#FFBB28]" />
-                        Insurance ${expenses.insurance}
-                    </TableData>
-                    <td className="px-2">Water & Sewer ${expenses.water}</td>
-                    <td className="px-2">
-                        CapEx ${expenses.capitalExpenditures}
+                        Insurance
                     </td>
+                    <TableData>${expenses.insurance}</TableData>
+                    <TableData>Water & Sewer </TableData>
+                    <TableData>${expenses.water}</TableData>
+                    <TableData>CapEx</TableData>
+                    <TableData>${expenses.capitalExpenditures}</TableData>
                 </tr>
                 <tr>
-                    <TableData>
+                    <td className="flex items-center gap-2 px-2">
                         <Dot color="bg-[#FF8042]" />
-                        Variable Expenses {variableExpenses}
-                    </TableData>
-                    <td className="px-2">HOA Fees ${expenses.HOAFees}</td>
-                    <td className="px-2">Garbage ${expenses.garbage}</td>
+                        Variable Expenses
+                    </td>
+                    <TableData>${variableExpenses}</TableData>
+                    <TableData>HOA Fees </TableData>
+                    <TableData>${expenses.HOAFees}</TableData>
+                    <TableData>Garbage</TableData>
+                    <TableData>${expenses.garbage}</TableData>
                 </tr>
                 <tr>
-                    <TableData>
+                    <td className="flex items-center gap-2 px-2">
                         <Dot color={"bg-[#4f42ff]"} />
-                        Fixed Expeses {fixedExpenses}
-                    </TableData>
-                    <td className="px-2">Garbage ${expenses.garbage}</td>
-                    <td className="px-2">
-                        Maintenance ${expenses.repairsAndMaintenance}
+                        Fixed Expeses
                     </td>
+                    <TableData>${fixedExpenses}</TableData>
+                    <TableData>Garbage </TableData>
+                    <TableData>${expenses.garbage}</TableData>
+                    <TableData>Maintenance</TableData>
+                    <TableData>${expenses.repairsAndMaintenance}</TableData>
                 </tr>
             </tbody>
         </table>
@@ -88,7 +93,7 @@ export default function ExpensesTable({
 }
 
 const TableData = ({ children }: { children: React.ReactNode }) => {
-    return <td className="px-2 flex items-center gap-1">{children}</td>;
+    return <td className="px-4">{children}</td>;
 };
 
 const Dot = ({ color }: { color: string }) => {

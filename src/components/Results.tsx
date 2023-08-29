@@ -19,7 +19,7 @@ export default function Results({
     monthlyLoanPayment: number;
 }) {
     return (
-        <div className="w-10/12 border flex flex-col items-center mx-auto gap-20">
+        <div className="border flex flex-col items-center mx-auto gap-20">
             <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
