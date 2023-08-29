@@ -17,7 +17,7 @@ export default function Results({
     rentalIncome: number;
     expenses: Expenses;
     loanTerms: LoanTerms;
-    monthlyLoanPayment: string;
+    monthlyLoanPayment: number;
 }) {
     return (
         <div className="w-10/12 border flex flex-col items-center mx-auto gap-20">

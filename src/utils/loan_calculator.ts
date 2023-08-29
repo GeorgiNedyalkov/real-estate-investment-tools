@@ -15,7 +15,7 @@ export function calculateLoan(
         ((monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) /
             (Math.pow(1 + monthlyInterestRate, loanTerm) - 1));
 
-    return monthlyPayment.toFixed(0);
+    return monthlyPayment;
 }
 // 593
 

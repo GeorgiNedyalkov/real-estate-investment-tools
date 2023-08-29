@@ -15,7 +15,7 @@ export default function LoanForm({
     >;
     onCalculateMonthlyMortgage: (values: LoanTerms) => void;
 }) {
-    const [monthlyLoanPayment, setMonthlyLoanPayment] = useState("");
+    const [monthlyLoanPayment, setMonthlyLoanPayment] = useState(0);
 
     const onFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ export default function LoanForm({
 
         setMonthlyLoanPayment(
             calculateLoan(
-                +purchasePrice,
+                Number(purchasePrice),
                 loanTerms.downpayment,
                 loanTerms.interestRate,
                 loanTerms.loanYears

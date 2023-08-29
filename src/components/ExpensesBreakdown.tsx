@@ -29,7 +29,7 @@ export default function ExpensesBreakdown({
 }: {
     expenses: Expenses;
     rentalIncome: number;
-    monthlyLoanPayment: string;
+    monthlyLoanPayment: number;
 }) {
     const [expensesBreakdown, setExpensesBreakdown] = useState(
         INITIAL_EXPENSES_BREAKDOWN

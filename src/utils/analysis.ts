@@ -28,10 +28,12 @@ export function analyzeProperty(
     const expenseGrossIncomeRatio = (operatingExpenses / grossIncome) * 100;
 
     // calculate monthly mortgage payment
-    const monthlyMortgagePayment = Number(
-        calculateLoan(purchasePrice, downpayment, interestRate, loanYears)
+    const monthlyMortgagePayment = calculateLoan(
+        purchasePrice,
+        downpayment,
+        interestRate,
+        loanYears
     );
-
     const totalExpenses = operatingExpenses + monthlyMortgagePayment * 12;
     const mortgageExpenseRatio =
         (monthlyMortgagePayment /
@@ -40,6 +42,7 @@ export function analyzeProperty(
 
     // calculate total cash flow and cash ROI
     const totalCashFlow = netOperatingIncome - monthlyMortgagePayment * 12;
+    console.log({ totalCashFlow });
     const cashROI = (totalCashFlow / investmentAmount) * 100;
 
     return {

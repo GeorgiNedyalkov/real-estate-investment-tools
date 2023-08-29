@@ -7,7 +7,7 @@ export default function ExpensesTable({
     variableExpenses,
 }: {
     expenses: Expenses;
-    monthlyLoanPayment: string;
+    monthlyLoanPayment: number;
     fixedExpenses: number;
     variableExpenses: number;
 }) {

@@ -22,7 +22,7 @@ function App() {
     );
     const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
     const [loanTerms, setLoanTerms] = useState(INITIAL_LOAN_TERMS);
-    const [monthlyLoanPayment, setMonthlyLoanPayment] = useState("");
+    const [monthlyLoanPayment, setMonthlyLoanPayment] = useState(0);
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchasePrice(+e.target.value);

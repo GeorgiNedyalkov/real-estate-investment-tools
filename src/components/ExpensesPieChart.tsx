@@ -7,7 +7,7 @@ export default function ExpensesPieChart({
     insurance,
     monthlyLoanPayment,
 }: {
-    monthlyLoanPayment: string;
+    monthlyLoanPayment: number;
     fixedExpenses: number;
     variableExpenses: number;
     taxes: number;
@@ -18,7 +18,7 @@ export default function ExpensesPieChart({
     const data = [
         {
             name: "Mortgage",
-            value: Number(monthlyLoanPayment),
+            value: monthlyLoanPayment,
         },
         {
             name: "Taxes",

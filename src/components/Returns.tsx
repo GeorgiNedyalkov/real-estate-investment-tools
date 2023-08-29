@@ -25,7 +25,9 @@ export default function Returns({
             expenses
         );
         console.log(analysis);
+        return analysis;
     }
+
     return (
         <div className="mb-40">
             <h2 className="text-2xl font-bold mb-5">Returns</h2>
