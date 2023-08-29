@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { calculateLoan } from "../utils/loan_calculator.ts";
-import { LoanTerms } from "../interfaces/ILoanTerms.tsx";
+import { LoanTerms } from "../interfaces/interfaces.tsx";
 
 export default function LoanForm({
     purchasePrice,

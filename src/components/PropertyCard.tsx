@@ -1,4 +1,4 @@
-import { Property } from "../interfaces/IProperty";
+import { Property } from "../interfaces/interfaces.tsx";
 import { IoLocation, IoBed } from "react-icons/io5";
 import { FaBath } from "react-icons/fa";
 
