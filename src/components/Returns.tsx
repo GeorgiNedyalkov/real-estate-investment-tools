@@ -76,7 +76,7 @@ export default function Returns({
                 />
                 <KPI
                     label="50% rule cash flow"
-                    statistic={"%" + netOperatingIncome}
+                    statistic={"$" + netOperatingIncome / 2}
                 />
             </div>
             <button className="mt-10 border p-2" onClick={calculateResults}>
