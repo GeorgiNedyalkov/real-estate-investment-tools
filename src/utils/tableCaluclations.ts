@@ -2,9 +2,9 @@ import { calculateRemainingLoanBalance } from "./loan_calculator.ts";
 import { RowData } from "../interfaces/interfaces.tsx";
 
 export function calculateTableRows() {
-    let initialPropertyValue = 100_000;
+    let propertyValue = 100_000;
     const appreciationRate = 2 / 100;
-    let initialEquity = 20_000;
+    let equity = 20_000;
     const initialCashFlow = -1027;
     const initialProfit = -5;
     const initialReturn = 5;
@@ -25,45 +25,43 @@ export function calculateTableRows() {
         paymentsMade
     );
 
-    console.log(firstYearRemainingLoanBalance);
-
     // create initial values
-    const propertyValue: RowData = {
+    const propertyValueRow: RowData = {
         id: 1,
         metric: "Property Value",
-        year0: initialPropertyValue,
+        year0: propertyValue,
     };
-    const equity: RowData = {
+    const equityRow: RowData = {
         id: 2,
         metric: "Equity",
-        year0: initialEquity,
+        year0: equity,
     };
 
-    const loanBalance: RowData = {
+    const loanBalanceRow: RowData = {
         id: 3,
         metric: "Loan Balance",
         year0: initialLoanBalance,
     };
 
-    const cashFlow: RowData = {
+    const cashFlowRow: RowData = {
         id: 4,
         metric: "Cash Flow",
         year0: initialCashFlow,
     };
 
-    const mortgagePayment: RowData = {
+    const mortgagePaymentRow: RowData = {
         id: 5,
         metric: "Mortgage Payment",
         year0: monthlyMortgagePayment,
     };
 
-    const profitIfSold: RowData = {
+    const profitIfSoldRow: RowData = {
         id: 6,
         metric: "Profit if Sold",
         year0: initialProfit,
     };
 
-    const annualizedReturn: RowData = {
+    const annualizedReturnRow: RowData = {
         id: 7,
         metric: "Annualized Return",
         year0: initialReturn,
@@ -72,8 +70,8 @@ export function calculateTableRows() {
     for (let i = 1; i <= 30; i++) {
         const currentYear: keyof RowData = "year" + i;
 
-        initialEquity += annualMortgagePayment;
-        initialPropertyValue += initialPropertyValue * appreciationRate;
+        equity += annualMortgagePayment;
+        propertyValue += propertyValue * appreciationRate;
 
         if (
             (i > 5 && i < 10) ||
@@ -84,9 +82,11 @@ export function calculateTableRows() {
             continue;
         }
 
-        equity[currentYear] = initialEquity;
-        propertyValue[currentYear] = Math.round(initialPropertyValue);
-        mortgagePayment[currentYear] = monthlyMortgagePayment;
+        equityRow[currentYear] = equity;
+        propertyValueRow[currentYear] = Math.round(propertyValue);
+
+        // Mortgage Payment: need to calculate equity accrued
+        mortgagePaymentRow[currentYear] = monthlyMortgagePayment;
 
         const remainingLoanBalance = calculateRemainingLoanBalance(
             initialLoanBalance,
@@ -95,35 +95,36 @@ export function calculateTableRows() {
             paymentsMade
         );
 
-        loanBalance[currentYear] = remainingLoanBalance;
+        loanBalanceRow[currentYear] = remainingLoanBalance;
         initialLoanBalance = remainingLoanBalance;
         paymentsMade += 12;
-        cashFlow[currentYear] = 0;
-        profitIfSold[currentYear] = 0;
-        annualizedReturn[currentYear] = 0;
+
+        cashFlowRow[currentYear] = 0;
+        profitIfSoldRow[currentYear] = 0;
+        annualizedReturnRow[currentYear] = 0;
     }
 
     return [
         {
-            ...propertyValue,
+            ...propertyValueRow,
         },
         {
-            ...equity,
+            ...equityRow,
         },
         {
-            ...loanBalance,
+            ...loanBalanceRow,
         },
         {
-            ...cashFlow,
+            ...cashFlowRow,
         },
         {
-            ...mortgagePayment,
+            ...mortgagePaymentRow,
         },
         {
-            ...profitIfSold,
+            ...profitIfSoldRow,
         },
         {
-            ...annualizedReturn,
+            ...annualizedReturnRow,
         },
     ];
 }
