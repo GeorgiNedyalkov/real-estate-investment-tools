@@ -1,5 +1,5 @@
 import Returns from "./Returns";
-import ReturnsLineChart from "./ReturnsLineChart";
+import ReturnsLineChart from "./Returns/ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
 import ReportTable from "./ReportTable";

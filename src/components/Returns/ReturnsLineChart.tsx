@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { LineChart, XAxis, YAxis, Line, Legend, Tooltip } from "recharts";
 import { CategoricalChartState } from "recharts/types/chart/generateCategoricalChart";
-import ReturnsBreakdown from "./ReturnsBreakdown";
-import { calculateLineChartData } from "../utils/chartsCalculations.ts";
-import { calculateTotalExpenses } from "../utils/expenses.ts";
-import { Expenses } from "../interfaces/interfaces.tsx";
+import ReturnsBreakdown from "./ReturnsBreakdown.tsx";
+import { calculateLineChartData } from "../../utils/chartsCalculations.ts";
+import { calculateTotalExpenses } from "../../utils/expenses.ts";
+import { Expenses } from "../../interfaces/interfaces.tsx";
 
 export default function ReturnsLineChart({
     expenses,
