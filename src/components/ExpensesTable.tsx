@@ -73,8 +73,8 @@ export default function ExpensesTable({
                     <TableData>${variableExpenses}</TableData>
                     <TableData>HOA Fees </TableData>
                     <TableData>${expenses.HOAFees}</TableData>
-                    <TableData>Garbage</TableData>
-                    <TableData>${expenses.garbage}</TableData>
+                    <TableData>Maintenance</TableData>
+                    <TableData>${expenses.repairsAndMaintenance}</TableData>
                 </tr>
                 <tr>
                     <td className="flex items-center gap-2 px-2">
@@ -84,8 +84,6 @@ export default function ExpensesTable({
                     <TableData>${fixedExpenses}</TableData>
                     <TableData>Garbage </TableData>
                     <TableData>${expenses.garbage}</TableData>
-                    <TableData>Maintenance</TableData>
-                    <TableData>${expenses.repairsAndMaintenance}</TableData>
                 </tr>
             </tbody>
         </table>
