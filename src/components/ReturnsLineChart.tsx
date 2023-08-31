@@ -55,6 +55,7 @@ export default function ReturnsLineChart({
                 <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
                 <Line type="monotone" dataKey="return" stroke="#ca8282" />
             </LineChart>
+
             <ReturnsBreakdown selectedYear={selectedYear} />
         </div>
     );

@@ -18,12 +18,12 @@ export function calculateTableRows() {
 
     const annualMortgagePayment = monthlyMortgagePayment * 12;
 
-    const firstYearRemainingLoanBalance = calculateRemainingLoanBalance(
-        initialLoanBalance,
-        interestRate,
-        loanTerm,
-        paymentsMade
-    );
+    // const firstYearRemainingLoanBalance = calculateRemainingLoanBalance(
+    //     initialLoanBalance,
+    //     interestRate,
+    //     loanTerm,
+    //     paymentsMade
+    // );
 
     // create initial values
     const propertyValueRow: RowData = {
