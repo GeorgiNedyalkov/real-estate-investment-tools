@@ -74,11 +74,11 @@ export default function Returns({
     );
 }
 
-function KPI({ label, statistic }: { label: string; statistic: string }) {
+const KPI = ({ label, statistic }: { label: string; statistic: string }) => {
     return (
         <div className="w-40">
             <p>{label}</p>
             <h3 className="font-bold text-lg">{statistic}</h3>
         </div>
     );
-}
+};
