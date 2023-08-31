@@ -23,6 +23,8 @@ export default function Returns({
         expenses
     );
 
+    console.log(analysis);
+
     function calculateResults() {
         return analyzeProperty(
             purchasePrice,

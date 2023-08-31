@@ -65,3 +65,23 @@ export interface Property {
     yearBuilt?: number;
     description?: string;
 }
+
+export interface ColumnData {
+    accessor: string;
+    label: string;
+}
+
+export interface RowData {
+    id: number;
+    year0: number;
+    year1?: number;
+    year2?: number;
+    year3?: number;
+    year4?: number;
+    year5?: number;
+    year10?: number;
+    year15?: number;
+    year20?: number;
+    year30?: number;
+    [key: string]: number | string | undefined;
+}
