@@ -23,6 +23,7 @@ export default function Analysis({
             <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
+                    monthlyLoanPayment={monthlyLoanPayment}
                     rentalIncome={rentalIncome}
                 />
             </section>

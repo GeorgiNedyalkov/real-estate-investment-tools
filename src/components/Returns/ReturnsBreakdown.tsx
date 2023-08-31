@@ -16,7 +16,7 @@ export default function ReturnsBreakdown({
             <div>
                 <p className="font-semibold">Mothly Cash Flow</p>
                 <h3 className="text-xl font-bold">
-                    ${selectedYear.cashFlow} / month
+                    ${selectedYear.cashFlow.toFixed(0)} / month
                 </h3>
             </div>
             <div className="flex gap-5">
@@ -29,14 +29,14 @@ export default function ReturnsBreakdown({
                 <div>
                     <p className="font-semibold">Expenses</p>
                     <h4 className="text-xl font-bold text-red-500">
-                        ${selectedYear.expenses}/month{" "}
+                        ${selectedYear.expenses.toFixed(0)}/month
                     </h4>
                 </div>
             </div>
             <div>
                 <p className="font-semibold">CoC ROI</p>
                 <h4 className="text-xl font-bold">
-                    ${selectedYear.return.toFixed(2)}%{" "}
+                    ${selectedYear.return.toFixed(2)}%
                 </h4>
             </div>
         </div>
