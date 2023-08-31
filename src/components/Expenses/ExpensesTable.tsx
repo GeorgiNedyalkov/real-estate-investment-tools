@@ -1,4 +1,4 @@
-import { Expenses } from "../interfaces/interfaces";
+import { Expenses } from "../../interfaces/interfaces";
 
 export default function ExpensesTable({
     expenses,

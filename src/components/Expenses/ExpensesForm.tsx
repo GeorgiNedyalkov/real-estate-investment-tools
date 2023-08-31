@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { calculateTotalExpenses } from "../utils/expenses.ts";
-import { Expenses } from "../interfaces/interfaces.tsx";
+import { calculateTotalExpenses } from "../../utils/expenses.ts";
+import { Expenses } from "../../interfaces/interfaces.tsx";
 
 export default function ExpensesForm({
     rentalIncome,

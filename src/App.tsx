@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
-import Results from "./components/Results";
+import Analysis from "./components/Analysis";
 import LoanForm from "./components/LoanForm";
-import ExpensesForm from "./components/ExpensesForm";
+import ExpensesForm from "./components/Expenses/ExpensesForm.tsx";
 import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
@@ -82,7 +82,7 @@ function App() {
             </button>
 
             {showResults && (
-                <Results
+                <Analysis
                     rentalIncome={rentalIncome}
                     expenses={expenses}
                     monthlyLoanPayment={monthlyLoanPayment}

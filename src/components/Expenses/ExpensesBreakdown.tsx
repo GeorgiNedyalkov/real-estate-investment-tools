@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import ExpensesPieChart from "./ExpensesPieChart";
-import ExpensesTable from "./ExpensesTable";
-import { calculateExpensesBreakdown } from "../utils/expenses.ts";
+import ExpensesPieChart from "./ExpensesPieChart.tsx";
+import ExpensesTable from "./ExpensesTable.tsx";
+import { calculateExpensesBreakdown } from "../../utils/expenses.ts";
 import {
     Expenses,
     IExpensesBreakdown,
     VariableExpense,
     FixedExpense,
-} from "../interfaces/interfaces.tsx";
+} from "../../interfaces/interfaces.tsx";
 
 export default function ExpensesBreakdown({
     expenses,

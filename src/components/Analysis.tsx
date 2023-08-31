@@ -1,11 +1,11 @@
 import Returns from "./Returns";
 import ReturnsLineChart from "./ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
-import ExpensesBreakdown from "./ExpensesBreakdown";
+import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
 import ReportTable from "./ReportTable";
 import { Expenses, LoanTerms } from "../interfaces/interfaces";
 
-export default function Results({
+export default function Analysis({
     purchasePrice,
     rentalIncome,
     expenses,
