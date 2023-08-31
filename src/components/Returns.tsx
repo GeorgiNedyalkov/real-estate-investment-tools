@@ -25,15 +25,6 @@ export default function Returns({
 
     console.log(analysis);
 
-    function calculateResults() {
-        return analyzeProperty(
-            purchasePrice,
-            loanTerms,
-            rentalIncome,
-            expenses
-        );
-    }
-
     return (
         <div className="mb-40">
             <h2 className="text-2xl font-bold mb-5">Returns</h2>
@@ -76,12 +67,9 @@ export default function Returns({
                 />
                 <KPI
                     label="50% rule cash flow"
-                    statistic={"%" + netOperatingIncome}
+                    statistic={"$" + netOperatingIncome / 2}
                 />
             </div>
-            <button className="mt-10 border p-2" onClick={calculateResults}>
-                Calculate Results
-            </button>
         </div>
     );
 }
