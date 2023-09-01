@@ -28,12 +28,8 @@ export default function ExpensesForm({
         <div className="mb-10 my-20 flex justify-between w-6/12">
             <section>
                 <h2 className="text-2xl font-bold mb-5">Expenses</h2>
-                <p>Rental Income: {"$" + rentalIncome.toLocaleString()}</p>
-                <form
-                    onSubmit={onExpensesFormSubmit}
-                    className="flex flex-col gap-2"
-                >
-                    <div className="grid grid-flow-col grid-cols-3">
+                <form onSubmit={onExpensesFormSubmit}>
+                    <div className="grid grid-cols-3 gap-5">
                         <label>Property Taxes</label>
                         <input
                             name="propertyTaxes"
@@ -43,8 +39,6 @@ export default function ExpensesForm({
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Insurance</label>
                         <input
                             name="insurance"
@@ -54,8 +48,6 @@ export default function ExpensesForm({
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Repairs and Maintenance</label>
                         <input
                             name="repairsAndMaintenance"
@@ -70,9 +62,6 @@ export default function ExpensesForm({
                                 rentalIncome}
                             / month
                         </p>
-                    </div>
-
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Vacancy</label>
                         <input
                             name="vacancy"
@@ -85,8 +74,6 @@ export default function ExpensesForm({
                             {"$" + (expenses.vacancy / 100) * rentalIncome} /
                             month
                         </p>
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Capital Expenditures</label>
                         <input
                             name="capitalExpenditures"
@@ -101,9 +88,6 @@ export default function ExpensesForm({
                                 rentalIncome}
                             / month
                         </p>
-                    </div>
-
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Management Fees</label>
                         <input
                             name="managementFees"
@@ -116,8 +100,6 @@ export default function ExpensesForm({
                             ${(expenses.managementFees / 100) * rentalIncome}/
                             month
                         </p>
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Electricity</label>
                         <input
                             name="electricity"
@@ -126,9 +108,7 @@ export default function ExpensesForm({
                             value={expenses.electricity}
                             onChange={onExpensesChange}
                         />
-                    </div>
-
-                    <div className="grid grid-flow-col grid-cols-3">
+                        <p></p>
                         <label>Water</label>
                         <input
                             name="water"
@@ -137,18 +117,16 @@ export default function ExpensesForm({
                             value={expenses.water}
                             onChange={onExpensesChange}
                         />
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
+                        <p></p>
                         <label>HOA Fees</label>
                         <input
-                            name="HOAfees"
+                            name="HOAFees"
                             type="number"
                             className="border p-2"
                             value={expenses.HOAFees}
                             onChange={onExpensesChange}
                         />
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
+                        <p></p>
                         <label>Garbage</label>
                         <input
                             name="garbage"
@@ -157,63 +135,53 @@ export default function ExpensesForm({
                             value={expenses.garbage}
                             onChange={onExpensesChange}
                         />
-                    </div>
-                    <div className="grid grid-flow-col grid-cols-3">
+                        <p></p>
                         <label>Other</label>
                         <input
                             name="other"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.other}
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <input
-                        type="submit"
-                        className="border hover:bg-slate-200 cursor-pointer p-2 mb-5 w-52"
-                        value="Calculate Expenses"
-                    />
-
                     <button
                         onClick={onToggleOptionalExpenses}
-                        className="border p-2 bg-slate-100 hover:bg-slate-200"
+                        className="border my-5 p-2 bg-slate-100 hover:bg-slate-200"
                     >
-                        Optional: <span>expense growth, sales expense</span>
+                        <b>Optional: </b>
+                        <span>expense growth, sales expense</span>
                     </button>
-
                     {optionalExepses && (
-                        <div>
-                            <div className="grid grid-flow-col grid-cols-3">
-                                <label>Annual expenses growth</label>
-                                <input
-                                    name="annualExpensesGrowth"
-                                    type="number"
-                                    className="border p-2 ml-2"
-                                    value={expenses.annualExpensesGrowth}
-                                    onChange={onExpensesChange}
-                                />
-                            </div>
-                            <div className="grid grid-flow-col grid-cols-3">
-                                <label>Sales expenses</label>
-                                <input
-                                    name="salesExpenses"
-                                    type="number"
-                                    className="border p-2 ml-2"
-                                    value={expenses.salesExpenses}
-                                    onChange={onExpensesChange}
-                                />
-                            </div>
+                        <div className="grid grid-cols-3 gap-5">
+                            <label>Annual expenses growth</label>
+                            <input
+                                name="annualExpensesGrowth"
+                                type="number"
+                                className="border p-2"
+                                value={expenses.annualExpensesGrowth}
+                                onChange={onExpensesChange}
+                            />
+                            <p></p>
+                            <label>Sales expenses</label>
+                            <input
+                                name="salesExpenses"
+                                type="number"
+                                className="border p-2"
+                                value={expenses.salesExpenses}
+                                onChange={onExpensesChange}
+                            />
                         </div>
                     )}
                 </form>
             </section>
 
-            <div>
+            <section>
                 <h4 className="mb-2 text-xl font-bold">Expenses</h4>
                 <p className="text-xl font-semibold">
-                    {"$" + totalExpenses?.toLocaleString()}
+                    $ {totalExpenses?.toLocaleString()}
                 </p>
-            </div>
+            </section>
         </div>
     );
 }
