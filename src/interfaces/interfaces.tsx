@@ -11,6 +11,8 @@ export interface Expenses {
     HOAFees: number;
     garbage: number;
     other: number;
+    annualExpensesGrowth?: number;
+    salesExpenses?: number;
 }
 
 export interface IExpensesBreakdown {
