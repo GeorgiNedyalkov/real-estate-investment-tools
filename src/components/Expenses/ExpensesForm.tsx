@@ -12,11 +12,16 @@ export default function ExpensesForm({
     onExpensesChange: React.ChangeEventHandler<HTMLInputElement>;
 }) {
     const [totalExpenses, setTotalExpenses] = useState(0);
+    const [optionalExepses, setOptionalExpenses] = useState(true);
 
     const onExpensesFormSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
         setTotalExpenses(calculateTotalExpenses(expenses, rentalIncome));
+    };
+
+    const onToggleOptionalExpenses = () => {
+        setOptionalExpenses(!optionalExepses);
     };
 
     return (
@@ -167,6 +172,38 @@ export default function ExpensesForm({
                         className="border hover:bg-slate-200 cursor-pointer p-2 mb-5"
                         value="Calculate Expenses"
                     />
+
+                    <button
+                        onClick={onToggleOptionalExpenses}
+                        className="border p-2 bg-sky-100"
+                    >
+                        Optional: <span>expense growth, sales expense</span>
+                    </button>
+
+                    {optionalExepses && (
+                        <div>
+                            <div className="w-97 flex items-center justify-between">
+                                <label>Annual expenses growth</label>
+                                <input
+                                    name="annualExpensesGrowth"
+                                    type="number"
+                                    className="border p-2 ml-2"
+                                    value={expenses.annualExpensesGrowth}
+                                    onChange={onExpensesChange}
+                                />
+                            </div>
+                            <div className="w-97 flex items-center justify-between">
+                                <label>Sales expenses</label>
+                                <input
+                                    name="salesExpenses"
+                                    type="number"
+                                    className="border p-2 ml-2"
+                                    value={expenses.salesExpenses}
+                                    onChange={onExpensesChange}
+                                />
+                            </div>
+                        </div>
+                    )}
                 </form>
             </section>
 
