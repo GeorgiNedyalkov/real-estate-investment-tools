@@ -33,131 +33,132 @@ export default function ExpensesForm({
                     onSubmit={onExpensesFormSubmit}
                     className="flex flex-col gap-2"
                 >
-                    <div className="w-96 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Property Taxes</label>
                         <input
                             name="propertyTaxes"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.propertyTaxes}
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Insurance</label>
                         <input
                             name="insurance"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.insurance}
                             onChange={onExpensesChange}
                         />
                         <p>/ month</p>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Repairs and Maintenance</label>
                         <input
                             name="repairsAndMaintenance"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.repairsAndMaintenance}
                             onChange={onExpensesChange}
                         />
                         <p>
-                            {"$" +
-                                (expenses.repairsAndMaintenance / 100) *
-                                    rentalIncome}
+                            $
+                            {(expenses.repairsAndMaintenance / 100) *
+                                rentalIncome}
+                            / month
                         </p>
-                        <p>/ month</p>
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Vacancy</label>
                         <input
                             name="vacancy"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.vacancy}
                             onChange={onExpensesChange}
                         />
-                        <p>{"$" + (expenses.vacancy / 100) * rentalIncome}</p>
-                        <p>/ month</p>
+                        <p>
+                            {"$" + (expenses.vacancy / 100) * rentalIncome} /
+                            month
+                        </p>
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Capital Expenditures</label>
                         <input
                             name="capitalExpenditures"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.capitalExpenditures}
                             onChange={onExpensesChange}
                         />
                         <p>
-                            {"$" +
-                                (expenses.capitalExpenditures / 100) *
-                                    rentalIncome}
+                            $
+                            {(expenses.capitalExpenditures / 100) *
+                                rentalIncome}
+                            / month
                         </p>
-                        <p>/ month</p>
                     </div>
 
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Management Fees</label>
                         <input
                             name="managementFees"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.managementFees}
                             onChange={onExpensesChange}
                         />
-                        <span>
-                            {"$" +
-                                (expenses.managementFees / 100) * rentalIncome}
-                        </span>
-                        <p>/ month</p>
+                        <p>
+                            ${(expenses.managementFees / 100) * rentalIncome}/
+                            month
+                        </p>
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Electricity</label>
                         <input
                             name="electricity"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.electricity}
                             onChange={onExpensesChange}
                         />
                     </div>
 
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Water</label>
                         <input
                             name="water"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.water}
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>HOA Fees</label>
                         <input
                             name="HOAfees"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.HOAFees}
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Garbage</label>
                         <input
                             name="garbage"
                             type="number"
-                            className="border p-2 ml-2"
+                            className="border p-2"
                             value={expenses.garbage}
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <div className="w-97 flex items-center justify-between">
+                    <div className="grid grid-flow-col grid-cols-3">
                         <label>Other</label>
                         <input
                             name="other"
@@ -169,20 +170,20 @@ export default function ExpensesForm({
                     </div>
                     <input
                         type="submit"
-                        className="border hover:bg-slate-200 cursor-pointer p-2 mb-5"
+                        className="border hover:bg-slate-200 cursor-pointer p-2 mb-5 w-52"
                         value="Calculate Expenses"
                     />
 
                     <button
                         onClick={onToggleOptionalExpenses}
-                        className="border p-2 bg-sky-100"
+                        className="border p-2 bg-slate-100 hover:bg-slate-200"
                     >
                         Optional: <span>expense growth, sales expense</span>
                     </button>
 
                     {optionalExepses && (
                         <div>
-                            <div className="w-97 flex items-center justify-between">
+                            <div className="grid grid-flow-col grid-cols-3">
                                 <label>Annual expenses growth</label>
                                 <input
                                     name="annualExpensesGrowth"
@@ -192,7 +193,7 @@ export default function ExpensesForm({
                                     onChange={onExpensesChange}
                                 />
                             </div>
-                            <div className="w-97 flex items-center justify-between">
+                            <div className="grid grid-flow-col grid-cols-3">
                                 <label>Sales expenses</label>
                                 <input
                                     name="salesExpenses"
