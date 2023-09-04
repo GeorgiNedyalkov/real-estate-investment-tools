@@ -20,16 +20,16 @@ export default function ReturnsLineChart({
     const [selectedYear, setSelectedYear] = useState(INITIAL_SELECTED_YEAR);
     const totalExpenses =
         monthlyLoanPayment + calculateTotalExpenses(expenses, rentalIncome);
+    console.log(expenses);
 
     // these need to be passed from a parent component down
-    const expensesAnnyalGrowthPercentage = 1;
     const cashInvested = 30_711;
 
     const data1 = calculateLineChartData(
         totalExpenses,
         rentalIncome,
         annualPropertyAppreciation,
-        expensesAnnyalGrowthPercentage,
+        expenses.annualExpensesGrowth!,
         cashInvested
     );
 

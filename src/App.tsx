@@ -160,6 +160,8 @@ const INITIAL_EXPENSES: Expenses = {
     HOAFees: 10,
     garbage: 10,
     other: 0,
+    annualExpensesGrowth: 0,
+    salesExpenses: 0,
 };
 
 const INITIAL_LOAN_TERMS: LoanTerms = {
