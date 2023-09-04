@@ -37,3 +37,29 @@ export function calculateRemainingLoanBalance(
             (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1))
     );
 }
+
+export function calculateEquityAccrued(
+    principal: number,
+    annualInterestRate: number,
+    loanTermInMonths: number
+): number {
+    const monthlyInterestRate = annualInterestRate / 12 / 100;
+    const totalPayments = loanTermInMonths;
+
+    let outstandingPrincipal = principal;
+    let equityAccrued = 0;
+
+    for (let month = 1; month <= totalPayments; month++) {
+        const payment =
+            (monthlyInterestRate * principal) /
+            (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+        const interestPayment = outstandingPrincipal * monthlyInterestRate;
+        const principalPayment = payment - interestPayment;
+
+        equityAccrued += principalPayment;
+
+        outstandingPrincipal -= principalPayment;
+    }
+
+    return equityAccrued;
+}

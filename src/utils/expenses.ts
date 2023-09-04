@@ -20,7 +20,7 @@ export function calculateExpenses(
         ) {
             variable += (expenses[key] / 100) * monthlyRentalIncome;
         } else {
-            fixed += expenses[key as keyof Expenses];
+            fixed += expenses[key as keyof Expenses]!;
         }
     }
 
