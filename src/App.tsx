@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
+import Button from "./components/Button.tsx";
 import Analysis from "./components/Analysis";
 import LoanForm from "./components/LoanForm";
 import ExpensesForm from "./components/Expenses/ExpensesForm.tsx";
@@ -74,22 +75,14 @@ function App() {
         setMonthlyLoanPayment(monthlyPayment);
     };
 
+    const toggleShowForm = () => setShowForm(!showForm);
+    const toggleShowResults = () => setShowResults(!showResults);
+
     return (
         <div className="bg-slate-100 ml-20 w-10/12 p-10">
             <Header />
-            <button
-                className="border p-2 font-bold mb-10"
-                onClick={() => setShowForm(!showForm)}
-            >
-                Show Form
-            </button>
-
-            <button
-                className="border p-2 font-bold mb-10"
-                onClick={() => setShowResults(!showResults)}
-            >
-                Show Results
-            </button>
+            <Button onClick={toggleShowForm}>Show Form</Button>
+            <Button onClick={toggleShowResults}>Show Results</Button>
 
             {showResults && (
                 <Analysis

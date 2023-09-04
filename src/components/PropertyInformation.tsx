@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button.tsx";
 import PropertyCard from "./PropertyCard";
 import { Property } from "../interfaces/interfaces.tsx";
 
@@ -61,12 +62,9 @@ export default function PropertyInformation({
                     />
                 </div>
 
-                <button
-                    onClick={() => setIsDetailed(!isDetailed)}
-                    className="border hover:bg-slate-200 cursor-pointer p-2 mb-5"
-                >
+                <Button onClick={() => setIsDetailed(!isDetailed)}>
                     Add additional property features
-                </button>
+                </Button>
 
                 {isDetailed && (
                     <>

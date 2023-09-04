@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { calculateTotalExpenses } from "../../utils/expenses.ts";
 import { Expenses } from "../../interfaces/interfaces.tsx";
+import Button from "../Button.tsx";
 
 export default function ExpensesForm({
     rentalIncome,
@@ -145,13 +146,13 @@ export default function ExpensesForm({
                             onChange={onExpensesChange}
                         />
                     </div>
-                    <button
-                        onClick={onToggleOptionalExpenses}
-                        className="border my-5 p-2 bg-slate-100 hover:bg-slate-200"
-                    >
-                        <b>Optional: </b>
-                        <span>expense growth, sales expense</span>
-                    </button>
+                    <Button onClick={onToggleOptionalExpenses}>
+                        Optional:
+                        <span className="ml-2 font-normal">
+                            expense growth, sales expense
+                        </span>
+                    </Button>
+
                     {optionalExepses && (
                         <div className="grid grid-cols-3 gap-5">
                             <label>Annual expenses growth</label>

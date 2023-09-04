@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 type PurchaseProps = {
     purchasePrice: number;
@@ -31,12 +32,10 @@ export default function PurchaseInformation({
                 />
                 <br />
 
-                <button
-                    className="border p-2 mb-5"
-                    onClick={onChangeValueGrowth}
-                >
+                <Button onClick={onChangeValueGrowth}>
                     Optional: property value growth
-                </button>
+                </Button>
+
                 <br />
                 {hasValueGrowth && (
                     <>
