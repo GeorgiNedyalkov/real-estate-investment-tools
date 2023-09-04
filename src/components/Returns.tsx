@@ -1,17 +1,19 @@
 import { Expenses, LoanTerms } from "../interfaces/interfaces";
 import { analyzeProperty } from "../utils/analysis.ts";
 
+type ReturnProps = {
+    rentalIncome: number;
+    purchasePrice: number;
+    loanTerms: LoanTerms;
+    expenses: Expenses;
+};
+
 export default function Returns({
     rentalIncome,
     purchasePrice,
     loanTerms,
     expenses,
-}: {
-    rentalIncome: number;
-    purchasePrice: number;
-    loanTerms: LoanTerms;
-    expenses: Expenses;
-}) {
+}: ReturnProps) {
     const expectedOperatingExpenses = rentalIncome * 0.5;
     const vacancy = 0.03;
     const netOperatingIncome = rentalIncome - rentalIncome * vacancy;
@@ -22,8 +24,6 @@ export default function Returns({
         rentalIncome,
         expenses
     );
-
-    console.log(analysis);
 
     return (
         <div className="mb-40">
