@@ -3,13 +3,11 @@ import Button from "./Button";
 import { PurchaseTerms } from "../interfaces/interfaces";
 
 type PurchaseProps = {
-    purchasePrice: number;
-    onPurchaseTermsChange: React.ChangeEventHandler<HTMLInputElement>;
     purchaseTerms: PurchaseTerms;
+    onPurchaseTermsChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 export default function PurchaseInformation({
-    purchasePrice,
     purchaseTerms,
     onPurchaseTermsChange,
 }: PurchaseProps) {
@@ -58,7 +56,7 @@ export default function PurchaseInformation({
             <div>
                 <h4 className="mb-2 text-xl font-bold">Property Value</h4>
                 <p className="text-xl font-semibold">
-                    {purchasePrice.toLocaleString() + " $"}
+                    {purchaseTerms.purchasePrice.toLocaleString() + " $"}
                 </p>
             </div>
         </div>
