@@ -54,10 +54,30 @@ export default function ReturnsLineChart({
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="year" stroke="#8884d8" />
-                <Line type="monotone" dataKey="rentalIncome" stroke="#8884d8" />
-                <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
-                <Line type="monotone" dataKey="return" stroke="#ca8282" />
+                <Line
+                    type="monotone"
+                    dataKey="year"
+                    stroke="#d884bb"
+                    dot={false}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="rentalIncome"
+                    stroke="#8884d8"
+                    dot={false}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="expenses"
+                    stroke="#82ca9d"
+                    dot={false}
+                />
+                <Line
+                    type="monotone"
+                    dataKey="cashFlow"
+                    stroke="#ca8282"
+                    dot={false}
+                />
             </LineChart>
 
             <ReturnsBreakdown selectedYear={selectedYear} />

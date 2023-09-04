@@ -9,12 +9,12 @@ export function calculateLineChartData(
     let years = 1;
 
     while (years <= 30) {
-        const cashFlow = rentalIncome - expenses;
+        const cashFlow = Math.round(rentalIncome - expenses);
 
         const currentYear = {
             name: `Year ${years}`,
             cashFlow,
-            expenses,
+            expenses: Math.round(expenses),
             rentalIncome,
             return: (cashFlow / cashInvested) * 100,
         };
