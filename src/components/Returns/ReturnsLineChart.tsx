@@ -4,31 +4,39 @@ import { CategoricalChartState } from "recharts/types/chart/generateCategoricalC
 import ReturnsBreakdown from "./ReturnsBreakdown.tsx";
 import { calculateLineChartData } from "../../utils/chartsCalculations.ts";
 import { calculateTotalExpenses } from "../../utils/expenses.ts";
-import { Expenses } from "../../interfaces/interfaces.tsx";
+import {
+    Expenses,
+    LoanTerms,
+    PurchaseTerms,
+} from "../../interfaces/interfaces.tsx";
+
+type ReturnsLineChartProps = {
+    expenses: Expenses;
+    purchaseTerms: PurchaseTerms;
+    loanTerms: LoanTerms;
+    rentalIncome: number;
+    monthlyLoanPayment: number;
+};
 
 export default function ReturnsLineChart({
     expenses,
+    purchaseTerms,
+    loanTerms,
     rentalIncome,
-    annualPropertyAppreciation,
     monthlyLoanPayment,
-}: {
-    expenses: Expenses;
-    annualPropertyAppreciation: number;
-    rentalIncome: number;
-    monthlyLoanPayment: number;
-}) {
+}: ReturnsLineChartProps) {
     const [selectedYear, setSelectedYear] = useState(INITIAL_SELECTED_YEAR);
     const totalExpenses =
         monthlyLoanPayment + calculateTotalExpenses(expenses, rentalIncome);
-    console.log(expenses);
 
-    // these need to be passed from a parent component down
-    const cashInvested = 30_711;
+    const cashInvested =
+        purchaseTerms.closingCosts +
+        (loanTerms.downpayment / 100) * purchaseTerms.purchasePrice;
 
     const data1 = calculateLineChartData(
         totalExpenses,
         rentalIncome,
-        annualPropertyAppreciation,
+        purchaseTerms.annualValueGrowth,
         expenses.annualExpensesGrowth!,
         cashInvested
     );
