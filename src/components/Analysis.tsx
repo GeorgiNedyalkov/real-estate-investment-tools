@@ -5,26 +5,29 @@ import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
 import ReportTable from "./ReportTable";
 import { Expenses, LoanTerms, PurchaseTerms } from "../interfaces/interfaces";
 
+type AnalysisProps = {
+    purchaseTerms: PurchaseTerms;
+    loanTerms: LoanTerms;
+    expenses: Expenses;
+    rentalIncome: number;
+    monthlyLoanPayment: number;
+};
+
 export default function Analysis({
     purchaseTerms,
     loanTerms,
     expenses,
     rentalIncome,
     monthlyLoanPayment,
-}: {
-    purchaseTerms: PurchaseTerms;
-    loanTerms: LoanTerms;
-    expenses: Expenses;
-    rentalIncome: number;
-    monthlyLoanPayment: number;
-}) {
+}: AnalysisProps) {
     return (
         <div className="border flex flex-col items-center mx-auto gap-20">
             <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
-                    annualPropertyAppreciation={purchaseTerms.annualValueGrowth}
+                    purchaseTerms={purchaseTerms}
                     monthlyLoanPayment={monthlyLoanPayment}
+                    loanTerms={loanTerms}
                     rentalIncome={rentalIncome}
                 />
             </section>
