@@ -102,7 +102,6 @@ function App() {
                     />
                     <PurchaseInformation
                         purchaseTerms={purchaseTerms}
-                        purchasePrice={purchaseTerms.purchasePrice}
                         onPurchaseTermsChange={onPurchaseTermsChange}
                     />
                     <LoanForm
@@ -160,7 +159,7 @@ const INITIAL_EXPENSES: Expenses = {
     HOAFees: 10,
     garbage: 10,
     other: 0,
-    annualExpensesGrowth: 0,
+    annualExpensesGrowth: 2,
     salesExpenses: 0,
 };
 
