@@ -1,3 +1,10 @@
+export interface PurchaseTerms {
+    purchasePrice: number;
+    closingCosts: number;
+    rehab: number;
+    annualValueGrowth: number;
+}
+
 export interface Expenses {
     propertyTaxes: number;
     insurance: number;

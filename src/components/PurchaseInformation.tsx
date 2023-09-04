@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 type PurchaseProps = {
     purchasePrice: number;
     onPurchasePriceChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -7,6 +9,12 @@ export default function PurchaseInformation({
     purchasePrice,
     onPurchasePriceChange,
 }: PurchaseProps) {
+    const [hasValueGrowth, setHasValueGrowth] = useState(false);
+
+    function onChangeValueGrowth() {
+        setHasValueGrowth(!hasValueGrowth);
+    }
+
     return (
         <div className="mb-10 flex justify-between w-6/12">
             <div>
@@ -15,12 +23,35 @@ export default function PurchaseInformation({
                 </h2>
                 <label>Purchase Price</label>
                 <input
+                    name="purchasePrice"
                     type="number"
-                    className="border p-2 ml-2"
+                    className="border p-2 ml-2 mb-5"
                     value={purchasePrice}
                     onChange={onPurchasePriceChange}
                 />
+                <br />
+
+                <button
+                    className="border p-2 mb-5"
+                    onClick={onChangeValueGrowth}
+                >
+                    Optional: property value growth
+                </button>
+                <br />
+                {hasValueGrowth && (
+                    <>
+                        <label>Purchase Price</label>
+                        <input
+                            type="number"
+                            className="border p-2 ml-2 mb-5"
+                            value={purchasePrice}
+                            onChange={onPurchasePriceChange}
+                        />
+                    </>
+                )}
             </div>
+
+            {/* Display results */}
             <div>
                 <h4 className="mb-2 text-xl font-bold">Purchase Price</h4>
                 <p className="text-xl font-semibold">

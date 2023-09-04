@@ -7,23 +7,33 @@ import ExpensesForm from "./components/Expenses/ExpensesForm.tsx";
 import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
-import { Property, Expenses, LoanTerms } from "./interfaces/interfaces";
+import {
+    Property,
+    Expenses,
+    LoanTerms,
+    PurchaseTerms,
+} from "./interfaces/interfaces";
 import { calculateLoan } from "./utils/loan_calculator.ts";
 
 function App() {
-    const [purchasePrice, setPurchasePrice] = useState(100_000);
-    const [rentalIncome, setRentalIncome] = useState(1000);
-    const [showForm, setShowForm] = useState(true);
-    const [showResults, setShowResults] = useState(true);
-    const [propertyInformation, setPropertyInformation] = useState(
+    const [propertyInformation, setPropertyInformation] = useState<Property>(
         INITIAL_PROPERTY_INFO
     );
+    const [purchaseTerms, setPurchaseTerms] = useState<PurchaseTerms>(
+        INITIAL_PURCHASE_TERMS
+    );
+    const [rentalIncome, setRentalIncome] = useState(1000);
     const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
     const [loanTerms, setLoanTerms] = useState(INITIAL_LOAN_TERMS);
     const [monthlyLoanPayment, setMonthlyLoanPayment] = useState(0);
+    const [showForm, setShowForm] = useState(true);
+    const [showResults, setShowResults] = useState(true);
 
     const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPurchasePrice(+e.target.value);
+        setPurchaseTerms({
+            ...purchaseTerms,
+            [e.target.name]: Number(e.target.value),
+        });
     };
 
     const onRentalIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +65,7 @@ function App() {
 
     const onCalculateMonthlyMortgage = (values: LoanTerms) => {
         const monthlyPayment = calculateLoan(
-            purchasePrice,
+            purchaseTerms.purchasePrice,
             values.downpayment,
             values.interestRate,
             values.loanYears
@@ -86,7 +96,7 @@ function App() {
                     rentalIncome={rentalIncome}
                     expenses={expenses}
                     monthlyLoanPayment={monthlyLoanPayment}
-                    purchasePrice={purchasePrice}
+                    purchasePrice={purchaseTerms.purchasePrice}
                     loanTerms={loanTerms}
                 />
             )}
@@ -98,11 +108,11 @@ function App() {
                         onPropertyChange={onPropertyChange}
                     />
                     <PurchaseInformation
-                        purchasePrice={purchasePrice}
+                        purchasePrice={purchaseTerms.purchasePrice}
                         onPurchasePriceChange={onPurchasePriceChange}
                     />
                     <LoanForm
-                        purchasePrice={purchasePrice}
+                        purchasePrice={purchaseTerms.purchasePrice}
                         loanTerms={loanTerms}
                         onLoanTermsChange={onLoanTermsChange}
                         onCalculateMonthlyMortgage={onCalculateMonthlyMortgage}
@@ -123,6 +133,13 @@ function App() {
 }
 
 export default App;
+
+const INITIAL_PURCHASE_TERMS = {
+    purchasePrice: 100_000,
+    closingCosts: 0,
+    rehab: 0,
+    annualValueGrowth: 0,
+};
 
 const INITIAL_PROPERTY_INFO: Property = {
     streetAddress: "",
