@@ -1,18 +1,21 @@
 import { useState } from "react";
 import Button from "./Button";
+import { PurchaseTerms } from "../interfaces/interfaces";
 
 type PurchaseProps = {
     purchasePrice: number;
-    onPurchasePriceChange: React.ChangeEventHandler<HTMLInputElement>;
+    onPurchaseTermsChange: React.ChangeEventHandler<HTMLInputElement>;
+    purchaseTerms: PurchaseTerms;
 };
 
 export default function PurchaseInformation({
     purchasePrice,
-    onPurchasePriceChange,
+    purchaseTerms,
+    onPurchaseTermsChange,
 }: PurchaseProps) {
     const [hasValueGrowth, setHasValueGrowth] = useState(false);
 
-    function onChangeValueGrowth() {
+    function onAddValueGrowth() {
         setHasValueGrowth(!hasValueGrowth);
     }
 
@@ -27,24 +30,25 @@ export default function PurchaseInformation({
                     name="purchasePrice"
                     type="number"
                     className="border p-2 ml-2 mb-5"
-                    value={purchasePrice}
-                    onChange={onPurchasePriceChange}
+                    value={purchaseTerms.purchasePrice}
+                    onChange={onPurchaseTermsChange}
                 />
                 <br />
 
-                <Button onClick={onChangeValueGrowth}>
+                <Button onClick={onAddValueGrowth}>
                     Optional: property value growth
                 </Button>
 
                 <br />
                 {hasValueGrowth && (
                     <>
-                        <label>Purchase Price</label>
+                        <label>Annual property value growth</label>
                         <input
+                            name="annualValueGrowth"
                             type="number"
                             className="border p-2 ml-2 mb-5"
-                            value={purchasePrice}
-                            onChange={onPurchasePriceChange}
+                            value={purchaseTerms.annualValueGrowth}
+                            onChange={onPurchaseTermsChange}
                         />
                     </>
                 )}
@@ -52,7 +56,7 @@ export default function PurchaseInformation({
 
             {/* Display results */}
             <div>
-                <h4 className="mb-2 text-xl font-bold">Purchase Price</h4>
+                <h4 className="mb-2 text-xl font-bold">Property Value</h4>
                 <p className="text-xl font-semibold">
                     {purchasePrice.toLocaleString() + " $"}
                 </p>

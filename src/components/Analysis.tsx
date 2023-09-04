@@ -3,19 +3,19 @@ import ReturnsLineChart from "./Returns/ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
 import ReportTable from "./ReportTable";
-import { Expenses, LoanTerms } from "../interfaces/interfaces";
+import { Expenses, LoanTerms, PurchaseTerms } from "../interfaces/interfaces";
 
 export default function Analysis({
-    purchasePrice,
-    rentalIncome,
-    expenses,
-    monthlyLoanPayment,
+    purchaseTerms,
     loanTerms,
+    expenses,
+    rentalIncome,
+    monthlyLoanPayment,
 }: {
-    purchasePrice: number;
-    rentalIncome: number;
-    expenses: Expenses;
+    purchaseTerms: PurchaseTerms;
     loanTerms: LoanTerms;
+    expenses: Expenses;
+    rentalIncome: number;
     monthlyLoanPayment: number;
 }) {
     return (
@@ -23,6 +23,7 @@ export default function Analysis({
             <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
+                    annualPropertyAppreciation={purchaseTerms.annualValueGrowth}
                     monthlyLoanPayment={monthlyLoanPayment}
                     rentalIncome={rentalIncome}
                 />
@@ -33,7 +34,7 @@ export default function Analysis({
                 monthlyLoanPayment={monthlyLoanPayment}
             />
             <Returns
-                purchasePrice={purchasePrice}
+                purchasePrice={purchaseTerms.purchasePrice}
                 rentalIncome={rentalIncome}
                 loanTerms={loanTerms}
                 expenses={expenses}

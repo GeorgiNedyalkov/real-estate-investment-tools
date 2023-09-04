@@ -30,7 +30,7 @@ function App() {
     const [showForm, setShowForm] = useState(true);
     const [showResults, setShowResults] = useState(true);
 
-    const onPurchasePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onPurchaseTermsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPurchaseTerms({
             ...purchaseTerms,
             [e.target.name]: Number(e.target.value),
@@ -89,7 +89,7 @@ function App() {
                     rentalIncome={rentalIncome}
                     expenses={expenses}
                     monthlyLoanPayment={monthlyLoanPayment}
-                    purchasePrice={purchaseTerms.purchasePrice}
+                    purchaseTerms={purchaseTerms}
                     loanTerms={loanTerms}
                 />
             )}
@@ -101,8 +101,9 @@ function App() {
                         onPropertyChange={onPropertyChange}
                     />
                     <PurchaseInformation
+                        purchaseTerms={purchaseTerms}
                         purchasePrice={purchaseTerms.purchasePrice}
-                        onPurchasePriceChange={onPurchasePriceChange}
+                        onPurchaseTermsChange={onPurchaseTermsChange}
                     />
                     <LoanForm
                         purchasePrice={purchaseTerms.purchasePrice}
@@ -127,11 +128,11 @@ function App() {
 
 export default App;
 
-const INITIAL_PURCHASE_TERMS = {
+const INITIAL_PURCHASE_TERMS: PurchaseTerms = {
     purchasePrice: 100_000,
     closingCosts: 0,
     rehab: 0,
-    annualValueGrowth: 0,
+    annualValueGrowth: 1,
 };
 
 const INITIAL_PROPERTY_INFO: Property = {

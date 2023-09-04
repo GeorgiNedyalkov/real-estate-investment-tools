@@ -9,9 +9,11 @@ import { Expenses } from "../../interfaces/interfaces.tsx";
 export default function ReturnsLineChart({
     expenses,
     rentalIncome,
+    annualPropertyAppreciation,
     monthlyLoanPayment,
 }: {
     expenses: Expenses;
+    annualPropertyAppreciation: number;
     rentalIncome: number;
     monthlyLoanPayment: number;
 }) {
@@ -20,14 +22,13 @@ export default function ReturnsLineChart({
         monthlyLoanPayment + calculateTotalExpenses(expenses, rentalIncome);
 
     // these need to be passed from a parent component down
-    const incomeAnnualGrowthPercentage = 1;
     const expensesAnnyalGrowthPercentage = 1;
     const cashInvested = 30_711;
 
     const data1 = calculateLineChartData(
         totalExpenses,
         rentalIncome,
-        incomeAnnualGrowthPercentage,
+        annualPropertyAppreciation,
         expensesAnnyalGrowthPercentage,
         cashInvested
     );
