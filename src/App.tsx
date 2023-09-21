@@ -8,13 +8,15 @@ import ExpensesForm from "./components/Expenses/ExpensesForm.tsx";
 import RentalIncome from "./components/RentalIncome";
 import PurchaseInformation from "./components/PurchaseInformation";
 import PropertyInformation from "./components/PropertyInformation";
-import {
-    Property,
-    Expenses,
-    LoanTerms,
-    PurchaseTerms,
-} from "./types/index.tsx";
+import { Property, LoanTerms, PurchaseTerms, ReactChangeEvent } from "./types";
 import { calculateLoan } from "./utils/loan_calculator.ts";
+
+import {
+    INITIAL_EXPENSES,
+    INITIAL_PROPERTY_INFO,
+    INITIAL_LOAN_TERMS,
+    INITIAL_PURCHASE_TERMS,
+} from "./data/initialValues.ts";
 
 function App() {
     const [propertyInformation, setPropertyInformation] = useState<Property>(
@@ -37,27 +39,25 @@ function App() {
         });
     };
 
-    const onRentalIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onRentalIncomeChange = (e: ReactChangeEvent) => {
         setRentalIncome(+e.target.value);
     };
 
-    const onPropertyChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
+    const onPropertyChange = (e: ReactChangeEvent) => {
         setPropertyInformation({
             ...propertyInformation,
             [e.target.name]: e.target.value,
         });
     };
 
-    const onExpensesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onExpensesChange = (e: ReactChangeEvent) => {
         setExpenses({
             ...expenses,
             [e.target.name]: Number(e.target.value),
         });
     };
 
-    const onLoanTermsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onLoanTermsChange = (e: ReactChangeEvent) => {
         setLoanTerms({
             ...loanTerms,
             [e.target.name]: e.target.value,
@@ -126,45 +126,3 @@ function App() {
 }
 
 export default App;
-
-const INITIAL_PURCHASE_TERMS: PurchaseTerms = {
-    purchasePrice: 100_000,
-    closingCosts: 0,
-    rehab: 0,
-    annualValueGrowth: 1,
-};
-
-const INITIAL_PROPERTY_INFO: Property = {
-    streetAddress: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    bedrooms: 0,
-    bathrooms: 0,
-    size: 0,
-    yearBuilt: 0,
-    description: "",
-};
-
-const INITIAL_EXPENSES: Expenses = {
-    propertyTaxes: 10,
-    insurance: 10,
-    repairsAndMaintenance: 5,
-    vacancy: 5,
-    capitalExpenditures: 5,
-    managementFees: 5,
-    electricity: 20,
-    gas: 20,
-    water: 20,
-    HOAFees: 10,
-    garbage: 10,
-    other: 0,
-    annualExpensesGrowth: 2,
-    salesExpenses: 0,
-};
-
-const INITIAL_LOAN_TERMS: LoanTerms = {
-    downpayment: 20,
-    interestRate: 5,
-    loanYears: 30,
-};

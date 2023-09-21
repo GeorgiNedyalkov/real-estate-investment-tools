@@ -94,3 +94,11 @@ export interface RowData {
     year30?: number;
     [key: string]: number | string | undefined;
 }
+
+//==============================================================================
+// Events
+//==============================================================================
+
+export type ReactChangeEvent = React.ChangeEvent<
+    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+>;
