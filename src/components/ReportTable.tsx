@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RowData, ColumnData } from "../interfaces/interfaces.tsx";
+import { RowData, ColumnData } from "../types";
 import { calculateTableRows } from "../utils/tableCaluclations.ts";
 
 export default function ReportTable() {

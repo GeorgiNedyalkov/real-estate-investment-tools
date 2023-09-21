@@ -3,9 +3,9 @@ import ReturnsLineChart from "./Returns/ReturnsLineChart";
 import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
 import ReportTable from "./ReportTable";
-import { Expenses, LoanTerms, PurchaseTerms } from "../interfaces/interfaces";
+import { Expenses, LoanTerms, PurchaseTerms } from "../types";
 
-type AnalysisProps = {
+type Props = {
     purchaseTerms: PurchaseTerms;
     loanTerms: LoanTerms;
     expenses: Expenses;
@@ -19,7 +19,7 @@ export default function Analysis({
     expenses,
     rentalIncome,
     monthlyLoanPayment,
-}: AnalysisProps) {
+}: Props) {
     return (
         <div className="border flex flex-col items-center mx-auto gap-20">
             <section className="flex justify-around">

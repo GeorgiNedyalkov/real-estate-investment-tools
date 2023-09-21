@@ -13,7 +13,7 @@ import {
     Expenses,
     LoanTerms,
     PurchaseTerms,
-} from "./interfaces/interfaces";
+} from "./types/index.tsx";
 import { calculateLoan } from "./utils/loan_calculator.ts";
 
 function App() {

@@ -1,5 +1,5 @@
 import { calculateRemainingLoanBalance } from "./loan_calculator.ts";
-import { RowData } from "../interfaces/interfaces.tsx";
+import { RowData } from "../types";
 
 export function calculateTableRows() {
     let propertyValue = 100_000;

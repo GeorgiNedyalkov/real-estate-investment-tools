@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
-import { PurchaseTerms } from "../interfaces/interfaces";
+import { PurchaseTerms } from "../types";
 
 type PurchaseProps = {
     purchaseTerms: PurchaseTerms;

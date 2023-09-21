@@ -7,7 +7,7 @@ import {
     IExpensesBreakdown,
     VariableExpense,
     FixedExpense,
-} from "../../interfaces/interfaces.tsx";
+} from "../../types";
 
 export default function ExpensesBreakdown({
     expenses,

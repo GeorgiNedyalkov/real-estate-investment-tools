@@ -1,6 +1,6 @@
 import { calculateExpenses } from "./expenses.ts";
 import { calculateLoan } from "./loan_calculator.ts";
-import { Expenses, LoanTerms } from "../interfaces/interfaces.ts";
+import { Expenses, LoanTerms } from "../types";
 
 export function analyzeProperty(
     purchasePrice: number,

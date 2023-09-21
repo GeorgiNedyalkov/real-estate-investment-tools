@@ -1,4 +1,4 @@
-import { Expenses, LoanTerms } from "../interfaces/interfaces";
+import { Expenses, LoanTerms } from "../types";
 import { analyzeProperty } from "../utils/analysis.ts";
 
 type ReturnProps = {

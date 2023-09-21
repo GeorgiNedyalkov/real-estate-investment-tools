@@ -4,11 +4,7 @@ import { CategoricalChartState } from "recharts/types/chart/generateCategoricalC
 import ReturnsBreakdown from "./ReturnsBreakdown.tsx";
 import { calculateLineChartData } from "../../utils/chartsCalculations.ts";
 import { calculateTotalExpenses } from "../../utils/expenses.ts";
-import {
-    Expenses,
-    LoanTerms,
-    PurchaseTerms,
-} from "../../interfaces/interfaces.tsx";
+import { Expenses, LoanTerms, PurchaseTerms } from "../../types";
 
 type ReturnsLineChartProps = {
     expenses: Expenses;

@@ -1,8 +1,4 @@
-import {
-    Expenses,
-    FixedExpense,
-    VariableExpense,
-} from "../interfaces/interfaces.ts";
+import { Expenses, FixedExpense, VariableExpense } from "../types";
 
 export function calculateExpenses(
     expenses: Expenses,
