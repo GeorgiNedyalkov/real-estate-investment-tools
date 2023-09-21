@@ -9,15 +9,17 @@ import {
     FixedExpense,
 } from "../../types";
 
+export interface ExpensesBreakdownProps {
+    expenses: Expenses;
+    rentalIncome: number;
+    monthlyLoanPayment: number;
+}
+
 export default function ExpensesBreakdown({
     expenses,
     monthlyLoanPayment,
     rentalIncome,
-}: {
-    expenses: Expenses;
-    rentalIncome: number;
-    monthlyLoanPayment: number;
-}) {
+}: ExpensesBreakdownProps) {
     const [expensesBreakdown, setExpensesBreakdown] =
         useState<IExpensesBreakdown>(INITIAL_EXPENSES_BREAKDOWN);
 
