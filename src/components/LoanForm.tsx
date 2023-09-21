@@ -2,19 +2,21 @@ import { useState } from "react";
 import { calculateLoan } from "../utils/loan_calculator.ts";
 import { LoanTerms } from "../types";
 
-export default function LoanForm({
-    purchasePrice,
-    loanTerms,
-    onLoanTermsChange,
-    onCalculateMonthlyMortgage,
-}: {
+type LoanFormProps = {
     purchasePrice: number;
     loanTerms: LoanTerms;
     onLoanTermsChange: React.ChangeEventHandler<
         HTMLInputElement | HTMLSelectElement
     >;
     onCalculateMonthlyMortgage: (values: LoanTerms) => void;
-}) {
+};
+
+export default function LoanForm({
+    purchasePrice,
+    loanTerms,
+    onLoanTermsChange,
+    onCalculateMonthlyMortgage,
+}: LoanFormProps) {
     const [monthlyLoanPayment, setMonthlyLoanPayment] = useState(0);
 
     const onFormSubmit = (e: React.SyntheticEvent) => {
