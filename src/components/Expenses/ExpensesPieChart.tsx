@@ -1,18 +1,20 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
+type ExpensesPieChartProps = {
+    monthlyLoanPayment: number;
+    fixedExpenses: number;
+    variableExpenses: number;
+    taxes: number;
+    insurance: number;
+};
+
 export default function ExpensesPieChart({
     fixedExpenses,
     variableExpenses,
     taxes,
     insurance,
     monthlyLoanPayment,
-}: {
-    monthlyLoanPayment: number;
-    fixedExpenses: number;
-    variableExpenses: number;
-    taxes: number;
-    insurance: number;
-}) {
+}: ExpensesPieChartProps) {
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#4f42ff"];
 
     const data = [

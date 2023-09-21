@@ -1,16 +1,18 @@
 import { Expenses } from "../../types";
 
+type ExpensesTableProps = {
+    expenses: Expenses;
+    monthlyLoanPayment: number;
+    fixedExpenses: number;
+    variableExpenses: number;
+};
+
 export default function ExpensesTable({
     expenses,
     monthlyLoanPayment,
     fixedExpenses,
     variableExpenses,
-}: {
-    expenses: Expenses;
-    monthlyLoanPayment: number;
-    fixedExpenses: number;
-    variableExpenses: number;
-}) {
+}: ExpensesTableProps) {
     const allExpenses = Math.round(
         fixedExpenses +
             variableExpenses +

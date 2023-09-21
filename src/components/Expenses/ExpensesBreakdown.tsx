@@ -9,11 +9,11 @@ import {
     FixedExpense,
 } from "../../types";
 
-export interface ExpensesBreakdownProps {
+type ExpensesBreakdownProps = {
     expenses: Expenses;
     rentalIncome: number;
     monthlyLoanPayment: number;
-}
+};
 
 export default function ExpensesBreakdown({
     expenses,

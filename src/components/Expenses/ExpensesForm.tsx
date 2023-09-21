@@ -3,15 +3,17 @@ import { calculateTotalExpenses } from "../../utils/expenses.ts";
 import { Expenses } from "../../types";
 import Button from "../Button.tsx";
 
+type ExpensesFormProps = {
+    rentalIncome: number;
+    expenses: Expenses;
+    onExpensesChange: React.ChangeEventHandler<HTMLInputElement>;
+};
+
 export default function ExpensesForm({
     rentalIncome,
     expenses,
     onExpensesChange,
-}: {
-    rentalIncome: number;
-    expenses: Expenses;
-    onExpensesChange: React.ChangeEventHandler<HTMLInputElement>;
-}) {
+}: ExpensesFormProps) {
     const [totalExpenses, setTotalExpenses] = useState(0);
     const [optionalExepses, setOptionalExpenses] = useState(true);
 
