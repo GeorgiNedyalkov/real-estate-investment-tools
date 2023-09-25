@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "./Button.tsx";
-import PropertyCard from "./PropertyCard";
-import { Property } from "../types";
+import PropertyCard from "./PropertyCard.tsx";
+import { Property } from "../types/index.tsx";
 
-export default function PropertyInformation({
+export default function PropertyInformationForm({
     propertyInformation,
     onPropertyChange,
 }: {

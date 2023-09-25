@@ -7,7 +7,7 @@ type PurchaseProps = {
     onPurchaseTermsChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export default function PurchaseInformation({
+export default function PurchaseInformationForm({
     purchaseTerms,
     onPurchaseTermsChange,
 }: PurchaseProps) {

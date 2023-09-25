@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RowData, ColumnData } from "../types";
 import { calculateTableRows } from "../utils/tableCaluclations.ts";
 
-export default function ReportTable() {
+export default function ForecastTable() {
     const [rows, setRows] = useState(INITIAL_ROWS);
 
     useEffect(() => {

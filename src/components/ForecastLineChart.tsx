@@ -1,6 +1,6 @@
 import { LineChart, XAxis, YAxis, Line, Legend, Tooltip } from "recharts";
 
-export default function ReportLineChart() {
+export default function ForecastLineChart() {
     return (
         <LineChart
             width={750}

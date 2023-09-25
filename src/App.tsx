@@ -1,47 +1,34 @@
 import { useState } from "react";
-
 import Header from "./components/Header";
 import Button from "./components/Button.tsx";
 import Analysis from "./components/Analysis";
 import LoanForm from "./components/LoanForm";
 import ExpensesForm from "./components/Expenses/ExpensesForm.tsx";
-import RentalIncome from "./components/RentalIncome";
-import PurchaseInformation from "./components/PurchaseInformation";
-import PropertyInformation from "./components/PropertyInformation";
+import RentalIncomeForm from "./components/RentalIncomeForm.tsx";
+import PurchaseInformationForm from "./components/PurchaseInformationForm.tsx";
+import PropertyInformationForm from "./components/PropertyInformationForm.tsx";
 import { Property, LoanTerms, PurchaseTerms, ReactChangeEvent } from "./types";
 import { calculateLoan } from "./utils/loan_calculator.ts";
-
 import {
     INITIAL_EXPENSES,
     INITIAL_PROPERTY_INFO,
     INITIAL_LOAN_TERMS,
     INITIAL_PURCHASE_TERMS,
-} from "./data/initialValues.ts";
+} from "./data";
 
 function App() {
-    const [propertyInformation, setPropertyInformation] = useState<Property>(
-        INITIAL_PROPERTY_INFO
-    );
-    const [purchaseTerms, setPurchaseTerms] = useState<PurchaseTerms>(
-        INITIAL_PURCHASE_TERMS
-    );
     const [rentalIncome, setRentalIncome] = useState(1000);
     const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
     const [loanTerms, setLoanTerms] = useState(INITIAL_LOAN_TERMS);
     const [monthlyLoanPayment, setMonthlyLoanPayment] = useState(0);
     const [showForm, setShowForm] = useState(true);
     const [showResults, setShowResults] = useState(true);
-
-    const onPurchaseTermsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPurchaseTerms({
-            ...purchaseTerms,
-            [e.target.name]: Number(e.target.value),
-        });
-    };
-
-    const onRentalIncomeChange = (e: ReactChangeEvent) => {
-        setRentalIncome(+e.target.value);
-    };
+    const [propertyInformation, setPropertyInformation] = useState<Property>(
+        INITIAL_PROPERTY_INFO
+    );
+    const [purchaseTerms, setPurchaseTerms] = useState<PurchaseTerms>(
+        INITIAL_PURCHASE_TERMS
+    );
 
     const onPropertyChange = (e: ReactChangeEvent) => {
         setPropertyInformation({
@@ -50,17 +37,28 @@ function App() {
         });
     };
 
-    const onExpensesChange = (e: ReactChangeEvent) => {
-        setExpenses({
-            ...expenses,
-            [e.target.name]: Number(e.target.value),
-        });
-    };
-
     const onLoanTermsChange = (e: ReactChangeEvent) => {
         setLoanTerms({
             ...loanTerms,
             [e.target.name]: e.target.value,
+        });
+    };
+
+    const onPurchaseTermsChange = (e: ReactChangeEvent) => {
+        setPurchaseTerms({
+            ...purchaseTerms,
+            [e.target.name]: Number(e.target.value),
+        });
+    };
+
+    const onRentalIncomeChange = (e: ReactChangeEvent) => {
+        setRentalIncome(Number(e.target.value));
+    };
+
+    const onExpensesChange = (e: ReactChangeEvent) => {
+        setExpenses({
+            ...expenses,
+            [e.target.name]: Number(e.target.value),
         });
     };
 
@@ -96,11 +94,11 @@ function App() {
 
             {showForm && (
                 <>
-                    <PropertyInformation
+                    <PropertyInformationForm
                         propertyInformation={propertyInformation}
                         onPropertyChange={onPropertyChange}
                     />
-                    <PurchaseInformation
+                    <PurchaseInformationForm
                         purchaseTerms={purchaseTerms}
                         onPurchaseTermsChange={onPurchaseTermsChange}
                     />
@@ -110,7 +108,7 @@ function App() {
                         onLoanTermsChange={onLoanTermsChange}
                         onCalculateMonthlyMortgage={onCalculateMonthlyMortgage}
                     />
-                    <RentalIncome
+                    <RentalIncomeForm
                         rentalIncome={rentalIncome}
                         onRentalIncomeChange={onRentalIncomeChange}
                     />

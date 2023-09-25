@@ -57,7 +57,6 @@ export function calculateEquityAccrued(
         const principalPayment = payment - interestPayment;
 
         equityAccrued += principalPayment;
-
         outstandingPrincipal -= principalPayment;
     }
 

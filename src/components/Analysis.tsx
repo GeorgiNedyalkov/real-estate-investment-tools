@@ -1,8 +1,8 @@
-import Returns from "./Returns";
+import ReturnsTable from "./ReturnsTable";
 import ReturnsLineChart from "./Returns/ReturnsLineChart";
-import ReportLineChart from "./ReportLineChart";
 import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
-import ReportTable from "./ReportTable";
+import ForecastLineChart from "./ForecastLineChart";
+import ForecastTable from "./ForecastTable";
 import { Expenses, LoanTerms, PurchaseTerms } from "../types";
 
 type Props = {
@@ -36,15 +36,15 @@ export default function Analysis({
                 rentalIncome={rentalIncome}
                 monthlyLoanPayment={monthlyLoanPayment}
             />
-            <Returns
+            <ReturnsTable
                 purchasePrice={purchaseTerms.purchasePrice}
                 rentalIncome={rentalIncome}
                 loanTerms={loanTerms}
                 expenses={expenses}
             />
             <div className="flex flex-col items-center gap-5">
-                <ReportLineChart />
-                <ReportTable />
+                <ForecastLineChart />
+                <ForecastTable />
             </div>
         </div>
     );

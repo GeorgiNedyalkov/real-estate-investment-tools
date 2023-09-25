@@ -3,7 +3,7 @@ type RentalIncomeProps = {
     onRentalIncomeChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export default function RentalIncome({
+export default function RentalIncomeForm({
     rentalIncome,
     onRentalIncomeChange,
 }: RentalIncomeProps) {

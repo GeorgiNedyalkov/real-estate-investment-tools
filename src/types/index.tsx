@@ -1,3 +1,6 @@
+//==============================================================================
+// State
+//========
 export interface PurchaseTerms {
     purchasePrice: number;
     closingCosts: number;
@@ -74,6 +77,10 @@ export interface Property {
     yearBuilt?: number;
     description?: string;
 }
+
+//==============================================================================
+// Table Types
+//==============================================================================
 
 export interface ColumnData {
     accessor: string;

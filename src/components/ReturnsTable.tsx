@@ -1,4 +1,4 @@
-import { Expenses, LoanTerms } from "../types";
+import { Expenses, LoanTerms } from "../types/index.tsx";
 import { analyzeProperty } from "../utils/analysis.ts";
 
 type ReturnProps = {
@@ -8,7 +8,7 @@ type ReturnProps = {
     expenses: Expenses;
 };
 
-export default function Returns({
+export default function ReturnsTable({
     rentalIncome,
     purchasePrice,
     loanTerms,
