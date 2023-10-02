@@ -1,6 +1,7 @@
 import ReturnsTable from "./ReturnsTable";
 import ReturnsLineChart from "./Returns/ReturnsLineChart";
 import ExpensesBreakdown from "./Expenses/ExpensesBreakdown";
+
 import ForecastLineChart from "./ForecastLineChart";
 import ForecastTable from "./ForecastTable";
 import { Expenses, LoanTerms, PurchaseTerms } from "../types";
@@ -22,7 +23,7 @@ export default function Analysis({
 }: Props) {
     return (
         <div className="border flex flex-col items-center mx-auto gap-20">
-            <section className="flex justify-around">
+            {/* <section className="flex justify-around">
                 <ReturnsLineChart
                     expenses={expenses}
                     purchaseTerms={purchaseTerms}
@@ -41,10 +42,16 @@ export default function Analysis({
                 rentalIncome={rentalIncome}
                 loanTerms={loanTerms}
                 expenses={expenses}
-            />
+            /> */}
             <div className="flex flex-col items-center gap-5">
-                <ForecastLineChart />
-                <ForecastTable />
+                <ForecastLineChart
+                    purchaseTerms={purchaseTerms}
+                    loanTerms={loanTerms}
+                />
+                <ForecastTable
+                    purchaseTerms={purchaseTerms}
+                    loanTerms={loanTerms}
+                />
             </div>
         </div>
     );

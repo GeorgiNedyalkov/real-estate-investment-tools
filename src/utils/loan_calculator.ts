@@ -21,23 +21,6 @@ export function calculateLoan(
 
 // todo: add property taxes, homeowners insurance, HOA Fees and PMI
 
-export function calculateRemainingLoanBalance(
-    principal: number,
-    interestRate: number,
-    loanTerm: number,
-    paymentsMade: number
-): number {
-    const numberOfPayments = loanTerm * 12;
-    const monthlyInterestRate = interestRate / 12 / 100;
-
-    return (
-        principal *
-        ((Math.pow(1 + monthlyInterestRate, numberOfPayments) -
-            Math.pow(1 + monthlyInterestRate, paymentsMade)) /
-            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1))
-    );
-}
-
 export function calculateEquityAccrued(
     principal: number,
     annualInterestRate: number,
@@ -61,4 +44,96 @@ export function calculateEquityAccrued(
     }
 
     return equityAccrued;
+}
+
+export function calculateMonthlyMortgagePayment(loanTerms) {
+    const { propertyValue, downpayment, interestRate, years } = loanTerms;
+    const principal = propertyValue - (downpayment / 100) * propertyValue;
+    const monthlyInterestRate = interestRate / 12 / 100;
+    const loanTerm = years * 12;
+
+    return Math.round(
+        principal *
+            ((monthlyInterestRate *
+                Math.pow(1 + monthlyInterestRate, loanTerm)) /
+                (Math.pow(1 + monthlyInterestRate, loanTerm) - 1))
+    );
+}
+
+export function calculateRemainingLoanBalance(loanTerms) {
+    const { propertyValue, downpayment, interestRate } = loanTerms;
+
+    let principal = propertyValue - propertyValue * (downpayment / 100);
+    const monthlyMortgagePayment = calculateMonthlyMortgagePayment(loanTerms);
+
+    console.log(monthlyMortgagePayment);
+
+    let remainingLoanBalance = principal;
+
+    for (let i = 1; i <= 12; i++) {
+        const monthlyIterestPayment = calculateMonthlyInterestPayment(
+            principal,
+            interestRate,
+            12
+        );
+        console.log(monthlyIterestPayment);
+
+        const monthlyPrincipalPayment =
+            monthlyMortgagePayment - monthlyIterestPayment;
+
+        remainingLoanBalance = principal - monthlyPrincipalPayment;
+
+        principal -= monthlyPrincipalPayment;
+    }
+
+    return Number(remainingLoanBalance.toFixed(3));
+}
+
+function calculateMonthlyInterestPayment(
+    principal: number,
+    interestRate: number,
+    numberOfPayments: number
+) {
+    return principal * (interestRate / 100 / numberOfPayments);
+}
+
+export function calculateMonthlyMortgagePaymentUpdated(
+    principal: number,
+    interestRate: number,
+    years: number
+) {
+    const monthlyInterestRate = interestRate / 12 / 100;
+    const loanTerm = years * 12;
+
+    return Math.round(
+        principal *
+            ((monthlyInterestRate *
+                Math.pow(1 + monthlyInterestRate, loanTerm)) /
+                (Math.pow(1 + monthlyInterestRate, loanTerm) - 1))
+    );
+}
+
+export function calculateRemainingLoanBalanceUpdated(
+    principal: number,
+    interestRate: number,
+    monthlyMortgagePayment: number
+) {
+    let remainingLoanBalance = principal;
+
+    for (let i = 1; i <= 12; i++) {
+        const monthlyIterestPayment = calculateMonthlyInterestPayment(
+            principal,
+            interestRate,
+            12
+        );
+
+        const monthlyPrincipalPayment =
+            monthlyMortgagePayment - monthlyIterestPayment;
+
+        remainingLoanBalance = principal - monthlyPrincipalPayment;
+
+        principal -= monthlyPrincipalPayment;
+    }
+
+    return Number(remainingLoanBalance.toFixed(3));
 }
